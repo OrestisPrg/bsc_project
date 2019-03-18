@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'hackme.apps.HackmeConfig',
     'users.apps.UsersConfig',
+    'exercises.apps.ExercisesConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -130,3 +131,8 @@ CRISPY_TEMPLATE_PACK='bootstrap4'
 
 LOGIN_REDIRECT_URL = 'hackme-home'
 LOGIN_URL = 'login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

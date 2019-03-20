@@ -28,6 +28,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='hackme/welcome.html'), name='logout'),
     path('chapter1/exercise1', exercises_views.ch1ex1, name='ch1ex1'),
+    path('chapter1/exercise1/quiz', exercises_views.ch1qz1, name='ch1qz1'),
     path('chapter1/exercise2', exercises_views.ch1ex2, name='ch1ex2'),
 
     path('password-reset/',

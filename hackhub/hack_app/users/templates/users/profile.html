@@ -9,6 +9,16 @@
         <p class="text-secondary">{{ user.email }}</p>
       </div>
     </div>
+    <div class="container my-5">
+      <h4> Your Progress:</h4>
+      <div class="progress">
+        {% if user.progress.ch1ex1 %}
+          <div class="progress-bar" style="width:50%">50%</div>
+        {% else %}
+          <div class="progress-bar" style="width:0%"></div>
+        {% endif %}
+      </div>
+    </div>
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <fieldset class="form-group">

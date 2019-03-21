@@ -8,24 +8,99 @@
       <h2> 1.1: Introduction to UNIX Systems </h2>
     </div>
     <div class="col-md-6 align-self-center">
-        <a class="btn btn-success float-right" href="{% url 'ch1qz1' %}" role="button">Take Quiz</a>
+        <a class="btn btn-success float-right" href="{% url 'ch1qz1' %}" target="_blank" role="button">Take Quiz</a>
     </div>
   </div>
 
   <hr class="divider my-4">
 </div>
 
-<div>
+<div class="container my-4">
+  <div class="row">
+    <h4>Users</h4>
+  </div>
+  <div class="row">
+    <p>
+      A UNIX-like system's user can either be a regular user, an administrative user or a service account.
+      <ul>
+        <li>
+          An administrative <b>root</b> account, commonly known as a superuser, is automatically created
+          and has administrative privileges for all services, access to all commands and files on the system.
+        </li>
+        <li>
+          Regular users have the necessary privileges to perform standard tasks on a Linux computer such as
+          running word processors, databases, and Web browsers. They can store files
+          in their own home directories. Since regular users do not normally have administrative privileges,
+          they cannot accidentally delete critical operating system configuration files.
+        </li>
+        <li>
+          Services such as Apache, Squid, mail, games, and printing have their own individual service accounts.
+          These accounts exist to allow each of these services to interact with your computer.
+        </li>
+      </ul>
+    </p>
+  </div>
+  <div class="row">
+      <h3> The Command-Line Interface (CLI) </h3>
+  </div>
+  <div class="row">
+    <p>
+      As opposed to the widely known and used Graphical User Interface (GUI), the CLI is a very useful and powerful
+      tool for users that seek simplicity, efficiency and speed. Although this might sound odd if you are not
+      not familiar with CLI, this exercise will introduce you to fundamental concepts and usages of a Linux system's
+      terminal.
+    </p>
+  </div>
+  <div class="row">
+    <h4 class="display"> The Command Prompt </h4>
+    <p>
+      By default, in a new terminal window, the user is at their home directory and can see a command prompt
+      consisting of the following components <code> [user]@[computer_name]:[current_path]$ </code> where:
+      <ul>
+        <li><code>[user]</code> is the username of the logged in user.</li>
+        <li><code>[computer_name]</code> is the name of the computer user is logged in.</li>
+        <li><code>[current_path]</code> is where the directory path the user currently is.</li>
+        <li>The <code> $ </code> symbol indicates the user is a regular user that doesn't have root priviledges. A root user is denoted by a <code> # </code> symbol.</li>
+      </ul>
+    </p>
+  </div>
+  <div class="row">
+    <p class="font-italic"> <br />
+      You must always perform tasks working as a regular user unless the directory or files you are working on
+      require root priviledges. Working as root on regular directories/files will not only change their permissions to root, but
+      prevents you from accidentally deleting or altering critical operating system files.
+    </p>
+  </div>
+  <div class="row">
+    <h4> Terminal Commands</h4>
+  </div>
   <p>
-    <h4 class="font-weight-bold">Ports</h4>
-     A port is an endpoint of communication. Physical as well as wireless connections are terminated at ports of hardware devices.
-     At the software level, within an operating system, a port is a logical construct that identifies a specific process
-     or a type of network service. Ports are identified for each protocol and address combination by 16-bit unsigned numbers,
-     commonly known as the port number. A system's ports are divided into 2 categories in regards to their port number:<br /><br />
+    The general structure of the terminal's commands constists of 3 components : <code>command [-option(s)] [argument(s)]</code> <br />
+    The command name is typed first, followed by any optional options and arguments. <br />
     <ul>
-      <li> <b>Registered Ports:</b> (1-1024) ports assigned to protocols by IANA (eg. HTTP:80, HTTPS:443,...)</li>
-      <li> <b>Ephemenal Ports:</b> (1024-65535)  randomly assigned to a connection</li>
+      <li>
+        <b>Options</b> can be either a single character preceeded by a hyphen (-) or a string proceeded by 2 hyphens (--).
+         Most commands provide a help option (usually <code>-h</code> or <code> --help</code>) that lists and demonstrates the usage of the available options and arguments.
+        <br /><i>Note: some options require their own arguments. Their usage can be also demonstrated with the help option.</i>
+    </li>
+      <li><b>Arguments</b> are usually used to specify the location of a file or directory by providing its path or any other associated information such as a file's or directory's name. </li>
     </ul>
   </p>
+  <div class="row">
+    <h4>Basic Commands</h4>
+  </div>
+  <div class="row">
+    <ul>
+      <li>
+        <b> <code> ls </code></b> lists the files and directories located in the current directory<br />
+        Options:
+        <ul>
+          <li><code>-a </code> lists all entries including hidden entries (starting with a period) and the parent directory (..) </li>
+          <li><code>-l </code> additionally displays the entries' permissions, links, owner, group, size, time and name.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  </div>
 </div>
 {% endblock content %}

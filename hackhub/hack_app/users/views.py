@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 
 
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -32,8 +33,25 @@ def profile(request):
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    progress = request.user.progress
+    #get a dictionary of progress object's variables and remove unwanted keys
+    prog_obj = vars(progress)
+    entries = ('_state','id','user_id')
+    for key in entries:
+        if key in prog_obj:
+            del prog_obj[key]
+    #calculate the completed percentage from the
+    #total number of exercises and the number of completed exercises
+    num_ex = len(prog_obj)
+    completed = 0
+    for x in prog_obj:
+        if prog_obj[x] == True:
+            completed = completed + 1
+    percent = (completed/num_ex)*100
     context = {
         'u_form': u_form,
-        'p_form': p_form
+        'p_form': p_form,
+        'progress': percent
     }
     return render(request, 'users/profile.html', context)

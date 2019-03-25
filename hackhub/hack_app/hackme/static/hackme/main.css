@@ -13,6 +13,10 @@ ul {
   margin: 0;
 }
 
+#command {
+  font-size: 1.5em;
+}
+
 .bg-steel {
   background-color: #5f788a;
 }
@@ -91,7 +95,7 @@ body {
 
 p {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: 300;
     line-height: 1.7em;
 }
@@ -139,7 +143,7 @@ a, a:hover, a:focus {
     background: #6d7fcc;
 }
 ul ul a {
-    font-size: 0.9em !important;
+    font-size: 1.2em !important;
     padding-left: 30px !important;
     background: #6d7fcc;
 }

@@ -30,6 +30,7 @@ urlpatterns = [
     path('chapter1/exercise1', exercises_views.ch1ex1, name='ch1ex1'),
     path('chapter1/exercise1/quiz', exercises_views.ch1qz1, name='ch1qz1'),
     path('chapter1/exercise2', exercises_views.ch1ex2, name='ch1ex2'),
+    path('chapter1/exercise2', exercises_views.ex_completed, name='ex_completed'),
 
     path('password-reset/',
      auth_views.PasswordResetView.as_view(template_name='users/password_reset.html'),

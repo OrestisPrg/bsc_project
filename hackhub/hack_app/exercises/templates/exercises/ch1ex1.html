@@ -2,17 +2,15 @@
 {% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <h1 class="font-weight-bold"> Introduction & Basics </h1>
+  <div class="row jumbotron">
+    <div class="col-md-8">
+      <h1 class="display-5 font-weight-bold"> Introduction & Basics </h1>
       <h2> 1.1: Introduction to UNIX Systems </h2>
     </div>
-    <div class="col-md-6 align-self-center">
+    <div class="col-md-4 align-self-center">
         <a class="btn btn-success float-right" href="{% url 'ch1qz1' %}" target="_blank" role="button">Take Quiz</a>
     </div>
   </div>
-
-  <hr class="divider my-4">
 </div>
 
 <div class="container my-4">
@@ -40,9 +38,10 @@
       </ul>
     </p>
   </div>
-  <div class="row">
-      <h3> The Command-Line Interface (CLI) </h3>
+  <div class="row mt-4">
+      <h3 class="font-weight-bold"> The Command-Line Interface (CLI) </h3>
   </div>
+  <hr class="divider">
   <div class="row">
     <p>
       As opposed to the widely known and used Graphical User Interface (GUI), the CLI is a very useful and powerful
@@ -52,7 +51,7 @@
     </p>
   </div>
   <div class="row">
-    <h4 class="display"> The Command Prompt </h4>
+    <h4 class="font-weight-bold"> The Command Prompt </h4>
     <p>
       By default, in a new terminal window, the user is at their home directory and can see a command prompt
       consisting of the following components <code> [user]@[computer_name]:[current_path]$ </code> where:
@@ -72,7 +71,7 @@
     </p>
   </div>
   <div class="row">
-    <h4> Terminal Commands</h4>
+    <h4 class="font-weight-bold"> Terminal Commands</h4>
   </div>
   <p>
     The general structure of the terminal's commands constists of 3 components : <code>command [-option(s)] [argument(s)]</code> <br />
@@ -91,13 +90,63 @@
   </div>
   <div class="row">
     <ul>
-      <li>
-        <b> <code> ls </code></b> lists the files and directories located in the current directory<br />
-        Options:
+      <li class="my-2">
+        <big class="font-weight-bold"> <code class="command"> pwd </code></big> displays the absolute path of the current working directory.
+      </li>
+      <hr class="divider">
+      <li class="my-2">
+        <big class="font-weight-bold"> <code class="command"> ls </code></big> lists the files and directories located in the current directory<br />
+        <b>Options:</b>
         <ul>
           <li><code>-a </code> lists all entries including hidden entries (starting with a period) and the parent directory (..) </li>
-          <li><code>-l </code> additionally displays the entries' permissions, links, owner, group, size, time and name.</li>
+          <li><code>-l </code> displays the entries' permissions, links, owner, group, size, time and name in addition.</li>
         </ul>
+        <b>Usage:</b> <code>ls [option(s)] </code>
+      </li>
+      <hr class="divider">
+      <li class="my-2">
+        <big class="font-weight-bold"> <code class="command"> cd </code></big> changes the current working working directory to the one whose path is provided as an argument. The path should be the directory's absolute path unless its path is relative to the working directory.<code> .. </code> represents the parent directory<br />
+        <b>Usage:</b> <code>cd [directory_path] </code>
+      </li>
+      <hr class="divider">
+      <li class="my-2">
+        <b> <code class="command"> ./ </code></b> runs a program or script whose name is provided as an argument.<br />
+        <b>Usage:</b> <code>./[filename] </code>
+      </li>
+      <hr class="divider">
+      <li class="my-2">
+        <big class="font-weight-bold"> <code class="command"> cat </code></big> displays a text file, whose name is provided as an argument, in the terminal. <br />
+        <b>Usage:</b> <code>cat [filename] </code>
+      </li>
+      <hr class="divider">
+      <li class="my-2">
+        <big class="font-weight-bold"> <code class="command"> nano </code></big> is an in-terminal text editor which allows you to create, edit and save text files. You can create a new file by providing a name as an argument or edit an existing file following the same convention. <br />
+        <b>Usage:</b> <code>nano [filename] </code>
+      </li>
+      <hr class="divider">
+      <li class="my-2">
+        <big class="font-weight-bold"> <code class="command"> touch </code></big> creates a new, empty file. It's name has to be provided as an argument <br />
+        <b>Usage:</b> <code>touch [filename] </code>
+      </li>
+      <hr class="divider">
+      <li class="my-2">
+        <big class="font-weight-bold"> <code class="command"> cp </code></big>  copies a file specified as the first argument (or more) to a target, specified as the last argument. If the target arleady exists, it is overwritten while if it doesn't, it is created.<br />
+        <b>Usage:</b> <code>cp [filename(s)] [target]</code>
+      </li>
+      <hr class="divider">
+      <li class="my-2">
+        <big class="font-weight-bold"> <code class="command"> mv </code></big>  moves a file specified as the first argument (or more) to a target, specified as the last argument. If the target is not an existing directory, the specified file/directory is simply renamed, by moving it to that new target.<br />
+        <b>Usage:</b> <code>mv [filename(s)] [target]</code>
+      </li>
+      <hr class="divider">
+      <li class="my-2">
+        <big class="font-weight-bold"> <code class="command"> rm </code></big>  deletes all the files specified as arguments. <br />
+        <b>Usage:</b> <code>rm [filename(s)]</code>
+      </li>
+      <hr class="divider">
+      <li class="my-2">
+        <big class="font-weight-bold"> <code class="command"> mkdir </code></big>  creates a new directory for all the specified arguments. <br />
+        <b>Usage:</b> <code>mkdir [directory_name(s)]</code>
       </li>
     </ul>
   </div>

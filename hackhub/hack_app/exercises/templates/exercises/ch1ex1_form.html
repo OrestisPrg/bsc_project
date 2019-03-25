@@ -3,14 +3,34 @@
 {% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
+  <div class="row jumbotron">
+    <div class="col-md-8">
       <h1 class="font-weight-bold"> Introduction & Basics </h1>
       <h2> 1.1: Introduction to UNIX Systems </h2>
     </div>
-    <div class="col-md-6 align-self-center">
+    <div class="col-md-4 align-self-center">
       <a class="btn btn-warning float-right" href="{% url 'ch1ex1' %}" role="button">Back</a>
     </div>
+  </div>
+  <div class="row">
+    <p>
+      This section will allow you to test what you have gained from the previous section.
+    </p>
+  </div>
+  <div class="row">
+    <h4>Preparation</h4>
+  </div>
+  <div class="row">
+    <em> Note: the following procedure can be carried out using the GUI but this exercise focuses on the correct usage of the command line interface (terminal) and the commands examined. Please use the terminal and the appropriate commands to complete this quiz to test your knowledge and gained skills!</em><hr class="divider">
+  </div>
+  <div class="row">
+    <ol>
+      <li> Login to the Kali Linux virtual machine and open a new terminal from the sidebar on the left.</li>
+      <li> Use the appropriate command to list the contents of the directory you are currently in and answer questions 1 & 2</li>
+      <li> Using the appropriate command, navigate to the <b> Hackhub</b> directory. </li>
+      <li> View the content of <b> welcome.txt </b> in order to find the answer for question 3</li>
+      <li> Find the <b>confidential.txt</b> file and answer question 4</li>
+    </ol>
   </div>
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}

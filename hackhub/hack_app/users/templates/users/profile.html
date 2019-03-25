@@ -12,11 +12,7 @@
     <div class="container my-5">
       <h4> Your Progress:</h4>
       <div class="progress">
-        {% if user.progress.ch1ex1 %}
-          <div class="progress-bar" style="width:50%">50%</div>
-        {% else %}
-          <div class="progress-bar" style="width:0%"></div>
-        {% endif %}
+          <div class="progress-bar" style="width:{{ progress }}%">{{ progress }}%</div>
       </div>
     </div>
     <form method="POST" enctype="multipart/form-data">

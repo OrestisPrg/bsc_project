@@ -23,6 +23,7 @@ class Progress(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     ch1ex1 = models.BooleanField(default=False)
     ch1ex2 = models.BooleanField(default=False)
+    ch1ex3 = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.user.username} Progress'

@@ -30,7 +30,11 @@ urlpatterns = [
     path('chapter1/exercise1', exercises_views.ch1ex1, name='ch1ex1'),
     path('chapter1/exercise1/quiz', exercises_views.ch1qz1, name='ch1qz1'),
     path('chapter1/exercise2', exercises_views.ch1ex2, name='ch1ex2'),
-    path('chapter1/exercise2', exercises_views.ex_completed, name='ex_completed'),
+    path('chapter1/exercise2/quiz', exercises_views.ch1qz2, name='ch1qz2'),
+    path('chapter1/exercise3', exercises_views.ch1ex3, name='ch1ex3'),
+    path('chapter1/exercise3/quiz', exercises_views.ch1qz3, name='ch1qz3'),
+    path('chapter2/exercise1', exercises_views.ch2ex1, name='ch2ex1'),
+    path('completed', exercises_views.ex_completed, name='ex_completed'),
 
     path('password-reset/',
      auth_views.PasswordResetView.as_view(template_name='users/password_reset.html'),

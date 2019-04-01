@@ -1,4 +1,48 @@
 {% extends "hackme/base.html" %}
 {% block content %}
-    <h1> About Page</h1>
+  <div class="container">
+    <hr class="divider" />
+    <div class="row justify-content-center">
+      <h2> Getting Started </h2>
+    </div>
+    <hr class="divider" />
+    <div class="row mt-5">
+      <h4> About HackHub </h4>
+    </div>
+    <hr class="divider" />
+    <div class="row">
+      <p>
+        Hackhub is an online educational platform that aims at introducing people from all backgrounds to ethical hacking.
+        <ul>
+          <li>The website's resources are divided into chapters, which categorise different topics based on their content and
+          their difficulty in terms of required prior knowledge.</li>
+          <li>Each chapter is divided into sections focusing on a specific topic and skill. Studying a chapter's section will
+          provide you with the knowledge to complete the section's quiz and earn a badge.</li>
+        </ul><br />
+        In order to complete each quiz you will need to access and use a Kali Linux VM. The VM provides you with an environment
+        to experiment, try new things and apply your newly gained skills to answers the quiz's questions.
+      </p>
+    </div>
+
+    <div class="row mt-4">
+      <h4> Kali Linux VM </h4>
+    </div>
+    <hr class="divider" />
+    <div class="row">
+      <p>
+        As mentioned above, you will be required to use a virtual machine running Kali Linux OS, a Linux distribution especially
+        designed for penetration testing. Kali comes with a large number of preinstalled penetration-testing programs and tools
+        which we will use through a number of chapters.<br />
+        <br />
+        In order to gain access to the machine, you will need to login with the following credentials:
+        <ul>
+          <li> Username: "hackhub"</li>
+          <li> Password: "hackhub"</li>
+        </ul><br />
+        Using this user account, you will have access to all the required files and tools that will be needed to guide your learning
+        experience.
+      </p>
+    </div>
+
+  </div>
 {% endblock content %}

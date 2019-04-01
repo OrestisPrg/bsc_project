@@ -5,7 +5,7 @@
   <div class="row jumbotron">
     <div class="col-md-8">
       <h1 class="display-5 font-weight-bold"> Introduction & Basics </h1>
-      <h2> 1.1: Introduction to UNIX Systems </h2>
+      <h2> 1.1: The Command Line Interface </h2>
     </div>
     <div class="col-md-4 align-self-center">
         <a class="btn btn-success float-right" href="{% url 'ch1qz1' %}" target="_blank" role="button">Take Quiz</a>
@@ -15,34 +15,6 @@
 
 <div class="container my-4">
   <div class="row">
-    <h4>Users</h4>
-  </div>
-  <div class="row">
-    <p>
-      A UNIX-like system's user can either be a regular user, an administrative user or a service account.
-      <ul>
-        <li>
-          An administrative <b>root</b> account, commonly known as a superuser, is automatically created
-          and has administrative privileges for all services, access to all commands and files on the system.
-        </li>
-        <li>
-          Regular users have the necessary privileges to perform standard tasks on a Linux computer such as
-          running word processors, databases, and Web browsers. They can store files
-          in their own home directories. Since regular users do not normally have administrative privileges,
-          they cannot accidentally delete critical operating system configuration files.
-        </li>
-        <li>
-          Services such as Apache, Squid, mail, games, and printing have their own individual service accounts.
-          These accounts exist to allow each of these services to interact with your computer.
-        </li>
-      </ul>
-    </p>
-  </div>
-  <div class="row mt-4">
-      <h3 class="font-weight-bold"> The Command-Line Interface (CLI) </h3>
-  </div>
-  <hr class="divider">
-  <div class="row">
     <p>
       As opposed to the widely known and used Graphical User Interface (GUI), the CLI is a very useful and powerful
       tool for users that seek simplicity, efficiency and speed. Although this might sound odd if you are not
@@ -50,8 +22,11 @@
       terminal.
     </p>
   </div>
-  <div class="row">
+  <div class="row mt-4">
     <h4 class="font-weight-bold"> The Command Prompt </h4>
+  </div>
+  <hr class="divider">
+  <div class="row">
     <p>
       By default, in a new terminal window, the user is at their home directory and can see a command prompt
       consisting of the following components <code> [user]@[computer_name]:[current_path]$ </code> where:
@@ -70,9 +45,11 @@
       prevents you from accidentally deleting or altering critical operating system files.
     </p>
   </div>
-  <div class="row">
+  <div class="row mt-4">
     <h4 class="font-weight-bold"> Terminal Commands</h4>
   </div>
+  <hr class="divider">
+  <div class="row">
   <p>
     The general structure of the terminal's commands constists of 3 components : <code>command [-option(s)] [argument(s)]</code> <br />
     The command name is typed first, followed by any optional options and arguments. <br />
@@ -85,7 +62,8 @@
       <li><b>Arguments</b> are usually used to specify the location of a file or directory by providing its path or any other associated information such as a file's or directory's name. </li>
     </ul>
   </p>
-  <div class="row">
+  </div>
+  <div class="row mt-4">
     <h4>Basic Commands</h4>
   </div>
   <div class="row">

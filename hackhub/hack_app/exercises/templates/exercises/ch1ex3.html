@@ -1,0 +1,113 @@
+{% extends "hackme/base.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-md-8">
+      <h1 class="display-5 font-weight-bold"> Introduction & Basics </h1>
+      <h2> 1.3: Introduction to Ethical Hacking  </h2>
+    </div>
+    <div class="col-md-4 align-self-center">
+        <a class="btn btn-success float-right" href="{% url 'ch1qz3' %}" target="_blank" role="button">Take Quiz</a>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="row">
+    <h4 class="font-weight-bold"> What is Ethical Hacking? </h4>
+  </div>
+  <hr class="divider">
+  <div class="row">
+    <p>
+      Ethical hacking or Penetration Testing can be defined as the act of breaking into a system with the owner's permission. The purpose
+      of intruding a system is to detect, identify, report and possibly fix vulnerabilities and weaknesses. Ethical hackers are trusted individuals that adopt the techniques
+      procedures, tools and knowledge used by malicious hackers to identify a system's vulnerabilities and prevent their exploitation.
+    </p>
+  </div>
+  <div class="row mt-4">
+      <h4 class="font-weight-bold"> Phases of Ethical Hacking </h4>
+  </div>
+  <hr class="divider">
+  <div class="row">
+    <p> The process of penetration testing can be usually broken down to 5 steps: </p>
+  </div>
+  <div class="row">
+      <ol>
+        <li>Reconnaissance / Footprinting</li>
+        <li>Scanning</li>
+        <li>Gaining Access</li>
+        <li>Maintaining Access</li>
+        <li>Clearing Tracks</li>
+      </ol>
+  </div>
+
+
+  <div class="row mt-4">
+    <h4> Reconnaissance / Footprinting </h4>
+  </div>
+  <hr class="divider">
+  <div class="row">
+    <p>
+      In this initial stage, the hacker focuses on gathering as much information as possible about the target system before launching an attack.
+      During the process of footprinting, the hacker collects valuable information about the target system by actively interacting with it,
+      usually through a network. The data collected usually include IP addresses, system names and the domain name, TCP and UDP services and passwords.
+      With this information, the attacker is able to identify potential system vulnerabilities and how they can be exploited.
+    </p>
+  </div>
+
+  <div class="row mt-4">
+    <h4> Scanning </h4>
+  </div>
+  <hr class="divider">
+  <div class="row">
+    <p>
+       In this phase, the attacker identifies the system's vulnerabilities and weaknesses which can be exploited, by gaining access to the network and collecting information.
+       The information gathered during footprinting can be utilised to aid this procedure. There are typically 3 types of scanning involved in this phase each of which focuses on a specific set of vulnerabilities.
+
+      <ul>
+        <li>
+          <b>Port scanning: </b> the target is scanned with port scanners, vulnerability scanners and other data-gathering equipment in order to obtain information like open ports, live systems, and services running on the host.
+        </li>
+        <li>
+          <b>Vulnerability Scanning: </b> the target is checked for exploitable vulnerabilities and weaknesses with help of automated tools.
+        </li>
+        <li>
+          <b>Network Mapping: </b>collecting information about the host, topology of network, routers, servers, and firewalls.
+        </li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="row mt-4">
+    <h4> Gaining Access </h4>
+  </div>
+  <hr class="divider">
+  <div class="row">
+    <p>
+      In this phase, the hacker gains access to the system, applications, and network with the aid of certain tools and procedures. Upon entering the target, the hacker needs to elevate their privileges to a system administrator, in order to be able to fully control the system, manipulating data and installing software.
+    </p>
+  </div>
+
+  <div class="row mt-4">
+    <h4> Maintaining Access </h4>
+  </div>
+  <hr class="divider">
+  <div class="row">
+    <p>
+      If the hacker's purpose goes beyond accessing the system and particularly wants to mantain a persistent connection between the comporomised system and their system, they need to secure access to the system using specific software in order to carry out an intended task.
+    </p>
+  </div>
+
+  <div class="row mt-4">
+    <h4> Clearing Tracks </h4>
+  </div>
+  <hr class="divider">
+  <div class="row">
+    <p>
+      In the final phase, the hacker clears all evidence in order to remove traces that can lead to their identity. The process involves tampering or deleting log files and their content,  clearing the cache and cookies, closing all the open ports and unintalling / deleting any software and files used.
+    </p>
+  </div>
+
+</div>
+{% endblock content %}

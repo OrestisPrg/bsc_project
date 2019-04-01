@@ -12,6 +12,7 @@
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'hackme/main.css' %}" />
+    <link rel="shortcut icon" type="image/png" href="../../media/favicon.png"/>
 
 
     {% if title %}
@@ -26,13 +27,14 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container">
+          <img src="../../media/favicon.png" class="mr-2" />
           <a class="navbar-brand mr-6" href="{% url 'hackme-home' %}">HackHub</a>
 
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{% url 'hackme-home' %}">Home</a>
               <a class="nav-item nav-link" href="{% url 'hackme-chapters' %}">Chapters</a>
-              <a class="nav-item nav-link" href="{% url 'hackme-about' %}">About</a>
+              <a class="nav-item nav-link" href="{% url 'hackme-about' %}">Get Started</a>
             </div>
 
             <div class="navbar-nav">

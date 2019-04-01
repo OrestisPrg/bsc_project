@@ -12,20 +12,20 @@ def welcome(request):
 @login_required
 def home(request):
     context = {
-        'title': 'Homepage'
+        'title': 'Homepage - H|H'
     }
     return render(request,'hackme/home.html',context)
 
 @login_required
 def about(request):
     context = {
-        'title': 'About'
+        'title': 'Get Started - H|H'
     }
     return render(request,'hackme/about.html', context)
 
 @login_required
 def chapters(request):
     context = {
-        'title': 'Chapters'
+        'title': 'Chapters - H|H'
     }
     return render(request,'hackme/chapters.html', context)

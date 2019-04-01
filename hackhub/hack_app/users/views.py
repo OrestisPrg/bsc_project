@@ -50,8 +50,10 @@ def profile(request):
             completed = completed + 1
     percent = (completed/num_ex)*100
     context = {
+        'title': 'My Profile - H|H',
         'u_form': u_form,
         'p_form': p_form,
-        'progress': percent
+        'progress': percent,
+        'badges': prog_obj
     }
     return render(request, 'users/profile.html', context)

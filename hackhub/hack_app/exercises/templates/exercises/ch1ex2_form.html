@@ -1,0 +1,42 @@
+{% extends "hackme/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-md-8">
+      <h1 class="font-weight-bold"> Introduction & Basics </h1>
+      <h2> 1.2: Users & Permissions </h2>
+    </div>
+    <div class="col-md-4 align-self-center">
+      <a class="btn btn-warning float-right" href="{% url 'ch1ex1' %}" role="button">Back</a>
+    </div>
+  </div>
+  <div class="row">
+  </div>
+  <div class="row">
+    <h4>Preparation</h4>
+  </div>
+  <div class="row">
+    <ol>
+      <li> Login to the Kali Linux virtual machine using "hackhub" as both the username and the password and open a new terminal from the sidebar on the left.</li>
+      <li> In the <b> Hackhub</b> directory, the directory <b>root_files</b> contains the <b>passwords.txt</b> file. View its contents and answer question 1 & 2.</li>
+      <li> Change <b>passwords.txt</b> permissions in order to allow the current user to view the file and answer question 3 & 4. </li>
+      <li> Create a new file called "new.txt" and answer question 5.</li>
+    </ol>
+  </div>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group my-4">
+      <legend class="border-bottom mb-4">Quiz 1.2</legend>
+      {{ form|crispy  }}
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-outline-info" type="submit">Submit</button>
+    </div>
+  </form>
+
+  <hr class="divider my-4">
+</div>
+
+{% endblock content %}

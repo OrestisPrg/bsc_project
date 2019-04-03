@@ -8,7 +8,7 @@
       <h2> 2.1: Nmap (Network Mapper)</h2>
     </div>
     <div class="col-md-4 align-self-center">
-        <a class="btn btn-success float-right" href="{% url 'ch1qz1' %}" target="_blank" role="button">Take Quiz</a>
+        <a class="btn btn-success float-right" href="{% url 'ch2qz1' %}" target="_blank" role="button">Take Quiz</a>
     </div>
   </div>
 </div>
@@ -25,7 +25,8 @@
       <li> Discover and identify open & close ports on a network or a host. </li>
       <li> Send crafted packages to networks and hosts. </li>
       <li> Identify the type of packet filters and firewalls the hosts use. </li>
-    </ul>
+    </ul><br />
+      An alternative to the command line interface is Zenmap which provides the same functionality in a GUI. Zenmap is available on Kali Linux.
     </p>
   </div>
 
@@ -77,22 +78,45 @@
       </li>
       <hr class="divider">
       <li>
-        <b>Include OS and service detection: </b> <code> nmap -A [IP or hostname]</code><br />
+        <b>Enalbe OS and service detection: </b> <code> nmap -A [IP or hostname]</code><br />
         This is a very good way to obtain useful information which may help in detecting potential exploits for particular services. Including the <code> -T4 </code> option will make the execution faster.
       </li>
+      <hr class="divider">
+      <li>
+        <b>Detect service versions: </b> <code> nmap <b> -sV </b> [IP or hostname] </code>
+      </li>
     </ul>
-
-    <div class="row mt-4">
-      <h4 class="font-weight-bold"> Nmap Scripting Engine (NSE) </h4>
-    </div>
-    <hr class="divider">
-    <div class="row">
-      <p>
-        Nmap Scripting Engine (NSE) provides users with a broad collection of scripts automating a wide variety of networking tasks. Using the scripts, users can perform more sophisticated network discovery and OS detection. NSE also allows to perform vulnerability detection and exploitation.<br />
-        <br />
-        Apart from the Nmap's scripts and the ones provided from the community, users are able to create custom scripts. On Kali, scripts are located in /usr/share/nmap/scripts and can be identified by the <em>.nse </em> extension or simply by using the <code>locate *.nse </code> command.</p>
-    </div>
   </div>
+  <div class="row mt-4">
+    <h4 class="font-weight-bold"> Nmap Scripting Engine (NSE) </h4>
+  </div>
+  <hr class="divider">
+  <div class="row">
+    <p>
+      Nmap Scripting Engine (NSE) provides users with a broad collection of scripts automating a wide variety of networking tasks. Using the scripts, users can perform more sophisticated network discovery and OS detection. NSE also allows to perform vulnerability detection and exploitation.<br />
+      <br />
+      Apart from the Nmap's scripts and the ones provided from the community, users are able to create custom scripts. On Kali, scripts are located in /usr/share/nmap/scripts and can be identified by the <em>.nse </em> extension or simply by using the <code>locate *.nse </code> command.<br />
+      <br />
+      <div class="alert alert-danger">Warning: It is crucial to remember that some of the scripts can be invasive and can even damage the target system accidentally or intentionally. In order to ensure that you will not harm your system or any other system you are not authorised to, you must always target systems created explicitly for learning and experimentation. Additionally, third party scripts from untrusted sources must be checked to ensure their functionality before running them.</div>
+    </p>
+  </div>
+
+  <div class="row my-4">
+    <h4> Running Scripts: </h4>
+  </div>
+  <div class="row">
+    <p>
+      Nmap has a predefined collection of scripts that can be run with the following command: <code> nmap -sV -sC [IP or hostname]</code> <br />
+      <br />
+      In order to run a specific script either from the collection provided or a custom script, you have to specify the name of the script using the <code> --script </code> option as shown: <code> nmap -sV --script=[script_name] [IP or hostname] </code>.
+      If the script requires you to provide arguments, you can supply using the <code> --script-args [arguments] </code> option right after the <code> --script=[script_name] </code> option.<br />
+      <br />
+      To view more information and get help about a specific script run the following command: <code> nmap --script-help [script_name] </code>.
+    </p>
+  </div>
+
+
+
 </div>
 
 {% endblock content %}

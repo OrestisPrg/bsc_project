@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import Ch1ex1, Ch1ex2, Ch1ex3
+from .forms import Ch1ex1, Ch1ex2, Ch1ex3, Ch2ex1
 from .models import Answers
 from users.models import Progress
 #from django.core.exceptions import ValidationError
@@ -97,7 +97,7 @@ def ch1qz3(request):
                 return render(request, 'exercises/ch1ex3_form.html', {'form': form})
             else:
                 progress = request.user.progress
-                progress.ch1ex2 = True
+                progress.ch1ex3 = True
                 progress.save()
                 return render(request, 'exercises/ex_completed.html', {'exercise': quiz})
 
@@ -114,3 +114,30 @@ def ch2ex1(request):
         'title': 'Section 2.1 - H|H'
     }
     return render(request, 'exercises/ch2ex1.html', context)
+
+def ch2qz1(request):
+    quiz = '2.1'
+    failed = False
+    if request.method == 'POST':
+        form = Ch2ex1(request.POST)
+        if form.is_valid():
+            answers = Answers.objects.get(quiz=quiz)
+
+            for q in form.cleaned_data:
+                if form.cleaned_data[q] != getattr(answers,q):
+                    failed = True
+            if failed:
+                return render(request, 'exercises/ch2ex1_form.html', {'form': form})
+            else:
+                progress = request.user.progress
+                progress.ch2ex1 = True
+                progress.save()
+                return render(request, 'exercises/ex_completed.html', {'exercise': quiz})
+
+    else:
+        form = Ch2ex1()
+    context = {
+        'title': 'Quiz 2.1 - H|H',
+        'form': form
+    }
+    return render(request, 'exercises/ch2ex1_form.html', context)

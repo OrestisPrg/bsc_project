@@ -59,3 +59,6 @@ class Ch1ex3(forms.Form):
       (3, ("Maintaining Access")),
       (4, ("Footprinting"))
       ), widget=forms.RadioSelect)
+
+class Ch2ex1(forms.Form):
+    q1 = forms.CharField(label='1: Perform a scan on a UDP ports. Which port is open? Please provide its number.', max_length=100)

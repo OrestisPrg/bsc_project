@@ -4,117 +4,80 @@
 <div class="container">
   <div class="row jumbotron">
     <div class="col-md-8">
-      <h1 class="display-5 font-weight-bold"> Footprinting with Command-line based Tools  </h1>
-      <h2> 2.1: Nmap (Network Mapper)</h2>
-    </div>
-    <div class="col-md-4 align-self-center">
-        <a class="btn btn-success float-right" href="{% url 'ch2qz1' %}" target="_blank" role="button">Take Quiz</a>
+      <h1 class="display-5 font-weight-bold"> Command-line Tools for Hacking  </h1>
+      <h2> 2.1: Setting up your Hacking Environment</h2>
     </div>
   </div>
 </div>
 
 <div class="container my-4">
-  <div class="row">
+  <div class="row col-md-12">
     <p>
-      Nmap (Network Mapper) is a command line tool for network discovery and security auditing. It can be used by a hacker to collect valuable information for systems and networks especially during the process of footprinting.
-      Using raw IP packets, amongst many others, Nmap is able to:
-    <ul>
-      <li> Determine the available hosts on a network. </li>
-      <li> Obtain information about the services the hosts are offering such as their name and version. </li>
-      <li> Retrieve information about the hosts' operating systems such as name and version. </li>
-      <li> Discover and identify open & close ports on a network or a host. </li>
-      <li> Send crafted packages to networks and hosts. </li>
-      <li> Identify the type of packet filters and firewalls the hosts use. </li>
-    </ul><br />
-      An alternative to the command line interface is Zenmap which provides the same functionality in a GUI. Zenmap is available on Kali Linux.
+      This chapter will introduce you to some of the most popular and essential command-line tools for any penetration tester.
+      Certain tools, such as Nmap, can be considered a crucial part of footprinting and therefore, are preinstalled in OS distributions dedicated to penetration testing (such as Kali Linux).<br />
+      <br />
+      In order to familiarise yourself with the tools as well as experiment and observe their actual functionality, you will need to target another system.
+      Of course, performing such tasks on other real systems not only is illegal unless explicit permission from the owner has been provided, but can cause permanent damage to the system accidentally or even intentionally in some cases.
+      It is therefore crucial to work with disposable, simulated systems, that have been created for this purpose such as virtual machines.
+
     </p>
   </div>
 
-  <div class="row mt-4">
-    <h4 class="font-weight-bold"> Nmap as a Port Scanner </h4>
+  <div class="row mt-4 col-md-12">
+    <h4 class="font-weight-bold"> Working with Virtual Machines </h4>
   </div>
   <hr class="divider">
-  <div class="row">
+  <div class="row col-md-12">
     <p>
-      Due to its information retrieving and data collecting capabilities, Nmap is a powerful tool that can be used to initiate an attack to a system.
-      Upon discovering a host's open ports, it can use them to obtain information about the host's OS and DNS lookups. This allow Nmap to determine and test if a host is vulnerable to exploitation.
+      The benefits of working with a virtual machine may already be clear from using the Kali Linux VM, especially when it comes to ethical hacking.
+      As mentioned above, virtual machines provide a sandbox environment to the user encouraging experimentation. Therefore, users can practise their hacking skills
+      by targeting a VM especially designed to be attacked and hacked. Ideally, the VM will intentionally be vulnerable allowing users to detect and exploit a number of different vulnerabilities.
     </p>
   </div>
 
-  <div class="row mt-4">
-    <h4> Usage </h4>
-  </div>
-  <div class="row">
-    <p>
-      In the following section the field <code>[IP] </code> stands for a host's IP Address and <code>[hostname] </code> for a host's address as URL. You can view your machine's IP address using the <code> ifconfig </code> command.
-    </p>
-    <ul>
-      <li class="my-2">
-        <b>Basic Scan: </b> <code class="command"> nmap [IP or hostname] </code>
-      </li>
-      <hr class="divider">
-      <li class="my-2">
-        <b> Port type scan: </b> <code class="command"> nmap <b>[option]</b> [IP or hostname] </code><br />
-        Options:
-        <ul>
-          <li> <b><code>-sS </code></b> scans using TCP SYN scan, to identify what ports are open without waiting for an acknowledgment from the TCP connection (default)</li>
-          <li> <b><code>-sT </code></b> scans TCP ports.</li>
-          <li> <b><code>-sU </code></b> scans UDP ports.</li>
-        </ul>
-      </li>
-      <hr class="divider">
-      <li class="my-2">
-        <b> Specific port scan: </b> <code class="command"> nmap <b>[option]</b> [IP or hostname] </code><br />
-        Options:
-        <ul>
-          <li> <b><code>-p [port_number] </code></b> scans a single port (default).</li>
-          <li> <b><code>-p [port_range] </code></b> scans a range of ports eg. 1-10.</li>
-          <li> <b><code>-p- </code></b> scan all 65535 ports.</li>
-        </ul>
-      </li>
-      <hr class="divider">
-      <li class="my-2">
-        <b> Scan the most popular ports: </b> <code class="command"> nmap <b>--top-ports [num_of_ports]</b> [IP or hostname] </code>
-      </li>
-      <hr class="divider">
-      <li>
-        <b>Enalbe OS and service detection: </b> <code> nmap -A [IP or hostname]</code><br />
-        This is a very good way to obtain useful information which may help in detecting potential exploits for particular services. Including the <code> -T4 </code> option will make the execution faster.
-      </li>
-      <hr class="divider">
-      <li>
-        <b>Detect service versions: </b> <code> nmap <b> -sV </b> [IP or hostname] </code>
-      </li>
-    </ul>
-  </div>
-  <div class="row mt-4">
-    <h4 class="font-weight-bold"> Nmap Scripting Engine (NSE) </h4>
+  <div class="row mt-4 col-md-12">
+    <h4> Metasploitable 2 </h4>
   </div>
   <hr class="divider">
-  <div class="row">
+  <div>
     <p>
-      Nmap Scripting Engine (NSE) provides users with a broad collection of scripts automating a wide variety of networking tasks. Using the scripts, users can perform more sophisticated network discovery and OS detection. NSE also allows to perform vulnerability detection and exploitation.<br />
-      <br />
-      Apart from the Nmap's scripts and the ones provided from the community, users are able to create custom scripts. On Kali, scripts are located in /usr/share/nmap/scripts and can be identified by the <em>.nse </em> extension or simply by using the <code>locate *.nse </code> command.<br />
-      <br />
-      <div class="alert alert-danger">Warning: It is crucial to remember that some of the scripts can be invasive and can even damage the target system accidentally or intentionally. In order to ensure that you will not harm your system or any other system you are not authorised to, you must always target systems created explicitly for learning and experimentation. Additionally, third party scripts from untrusted sources must be checked to ensure their functionality before running them.</div>
+      Metasploitable 2 is an intentionally vulnerable virtual machine with a version of Ubuntu Linux OS, designed to provide a vulnerable and easily exploitable target for ethical hackers. It was created by <a id="external" href="https://www.rapid7.com"> Rapid7</a>, the owners of the Metasploit Framework which is one of the leading penetration testing frameworks and it's mainly intended to be used in combination with Metasploit. Chapter 3 will focus on the Metasploit Framework and demonstrate how it can be used to successfully penetrate metasploitable. For the moment, we will use it as a target to put the skills gained from each section into practice.
     </p>
   </div>
 
-  <div class="row my-4">
-    <h4> Running Scripts: </h4>
+  <div class="row mt-4 col-md-12">
+    <h5> Installation and Configuration: </h5>
   </div>
-  <div class="row">
+  <div>
     <p>
-      Nmap has a predefined collection of scripts that can be run with the following command: <code> nmap -sV -sC [IP or hostname]</code> <br />
+      <ol>
+        <li> Download the Metasploitable 2 image. You can do this using <a id="external" href="https://sourceforge.net/projects/metasploitable/">this link</a>.</li>
+        <li> Once the download is complete, navigate to VirtualBox and click on the New button at the top left.</li>
+        <li> You can name this "metasploitable" and you should set the type to "Ubuntu" and version to "Ubuntu(64-bit)".</li>
+        <li> Select the desired amount of RAM to be allocated. 2048 MB should be enough.</li>
+        <li> In the "Hard Disk" screen, select the "Use an existing virtual disk image" option and browse your files to find the image downloaded earlier.</li>
+        <li> By selecting create, your virtual machine should be created.</li>
+      </ol>
+
+      <big> Once your have started the Metasploitable VM, you will be prompted to login. Use "msfadmin" for both username and password.</big><br  />
       <br />
-      In order to run a specific script either from the collection provided or a custom script, you have to specify the name of the script using the <code> --script </code> option as shown: <code> nmap -sV --script=[script_name] [IP or hostname] </code>.
-      If the script requires you to provide arguments, you can supply using the <code> --script-args [arguments] </code> option right after the <code> --script=[script_name] </code> option.<br />
-      <br />
-      To view more information and get help about a specific script run the following command: <code> nmap --script-help [script_name] </code>.
+      With metasploitable created, you will now need to run both Kali Linux and this in parallel in order to be able to experiment on it. In order to achieve this each VM must obtain its own IP address. This is achieved following the steps below:
+      <ol>
+        <li> In VirtualBox main screen, click on the "Global Tools" button located on the top right.</li>
+        <li> Then, select "Host Network Manager" from the available options.</li>
+        <li> On the next screen, click on the "Create" button on the top left. </li>
+        <li> A new item should appear below signifying that a host-only network has successfully been created.</li>
+        <li> Make sure that DHCP Server is enabled, listed as an attribute of the item created. </li>
+        <li> Go back to the main screen by pressing the "Machine Tools" button. </li>
+        <br /><big>Do the following for both VMs:</big><br /><br />
+        <li> Select the VM and click on the "Settings" button on the top left.</li>
+        <li> Select the "Network" tab from the menu on the left and then the "Adapter 2" tab from the on-screen tab list.</li>
+        <li> Enable the Network Adapter and set attached to to "Host-only Adapter" from the dropdown menu.</li>
+        <li> Set "name" to the network adapter created in step 4 and click OK.</li>
+      </ol>
+      After following the above, you should have 2 virtual machines with different IP addresses, connected to a virtual network. You can check this by using the <code> ifconfig </code> command. Each machine's IP address can be found in the "eth0" block labeled as "inet".
     </p>
   </div>
-
 
 
 </div>

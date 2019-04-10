@@ -1,0 +1,77 @@
+{% extends "hackme/base.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-md-8">
+      <h1 class="display-5 font-weight-bold"> Command-line Tools for Hacking  </h1>
+      <h2> 2.4: Burp Suite </h2>
+    </div>
+    <div class="col-md-4 align-self-center">
+        <a class="btn btn-success float-right" href="{% url 'ch2qz4' %}" target="_blank" role="button">Take Quiz</a>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="row col-md-12">
+    <p>
+      Packet analysers are software specialised in monitoring and intercept network traffic. Packets that pass over the network can be logged and itercepted,
+      in a process called packet capture. A packet analyser can decode the captured package's raw data, revealing the information contained in the package often
+      relevant to a user's activity. The contained information include addresses, visited websites, protocols used, dates, headers etc. Captured packages and traffic
+      are usually logged in .pcap files.
+
+    </p>
+  </div>
+
+  <div class="row col-md-12 mt-4">
+    <h4 class="font-weight-bold"> tcpdump </h4>
+  </div>
+  <hr class="divider">
+  <div class="row col-md-12">
+    <p>
+      tcpdump is a command-line packet analyser which has the ability to log TCP/IP, UDP and a lot more packages over the network the machine is connected to.
+      Any unencrypted traffic passing through a system can be intercepted by a user with elevated priviledges, providing valuable information such as user credentials.
+      Tcpdump is pre-installed on Kali.
+    </p>
+  </div>
+
+  <div class="row col-md-12 mt-4">
+    <h4> Usage </h4>
+  </div>
+  <div class="row col-md-12">
+    <p>
+      You can start viewing and capturing packets by simply using the <code> tcpdump </code> command. By default, it will monitor traffic from the "eth0" interface by you can specify another interface using the <code> -i </code> option.
+    </p>
+    <ul>
+      <li class="my-2">
+        <b> Save traffic in a .pcap file with: </b> <code class="command"> tcpdump -w [filename] </code>
+      </li>
+      <hr class="divider">
+      <li class="my-2">
+        <b> Read captured traffic from a file: </b> <code class="command"> tcpdump -r [filename]  </code><br />
+      </li>
+      <hr class="divider">
+      <li class="my-2">
+        <b> Filter captured traffic for packets to/from a specific host: </b> <code class="command"> tcpdump -r [filename] host [ip_address] </code>
+      </li>
+      <hr class="divider">
+      <li>
+        <b> Prevent packet convertion and DNS resolution: </b> <code> tcpdump -nn </code><br />
+      </li>
+    </ul>
+  </div>
+  <div class="row col-md-12 mt-4">
+    <h4 class="font-weight-bold"> Wireshark </h4>
+  </div>
+  <hr class="divider">
+  <div class="row col-md-12">
+    <p>
+      Wireshark is also a packet analyser with a very similar functionality to tcpdump with the difference that it provides a GUI. Due to its graphical interface, Wireshark provides filtering and sorting that makes the task of finding a specific packet much easier compared to the command-line based tcpdump.
+      Often capturing traffic with tcpdump might be an easier approach, which can then be analysed using Wireshark's interface. You can find Wireshark on your Kali VM.
+    </p>
+  </div>
+
+</div>
+
+{% endblock content %}

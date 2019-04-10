@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import Ch1ex1, Ch1ex2, Ch1ex3, Ch2ex1
+from .forms import *
 from .models import Answers
 from users.models import Progress
 #from django.core.exceptions import ValidationError
@@ -115,11 +115,19 @@ def ch2ex1(request):
     }
     return render(request, 'exercises/ch2ex1.html', context)
 
-def ch2qz1(request):
-    quiz = '2.1'
+
+def ch2ex2(request):
+    context = {
+        'title': 'Section 2.2 - H|H'
+    }
+    return render(request, 'exercises/ch2ex2.html', context)
+
+
+def ch2qz2(request):
+    quiz = '2.2'
     failed = False
     if request.method == 'POST':
-        form = Ch2ex1(request.POST)
+        form = Ch2ex2(request.POST)
         if form.is_valid():
             answers = Answers.objects.get(quiz=quiz)
 
@@ -127,17 +135,83 @@ def ch2qz1(request):
                 if form.cleaned_data[q] != getattr(answers,q):
                     failed = True
             if failed:
-                return render(request, 'exercises/ch2ex1_form.html', {'form': form})
+                return render(request, 'exercises/ch2ex2_form.html', {'form': form})
             else:
                 progress = request.user.progress
-                progress.ch2ex1 = True
+                progress.ch2ex2 = True
                 progress.save()
                 return render(request, 'exercises/ex_completed.html', {'exercise': quiz})
 
     else:
-        form = Ch2ex1()
+        form = Ch2ex2()
     context = {
-        'title': 'Quiz 2.1 - H|H',
+        'title': 'Quiz 2.2 - H|H',
         'form': form
     }
-    return render(request, 'exercises/ch2ex1_form.html', context)
+    return render(request, 'exercises/ch2ex2_form.html', context)
+
+def ch2ex3(request):
+    context = {
+        'title': 'Section 2.3 - H|H'
+    }
+    return render(request, 'exercises/ch2ex3.html', context)
+
+def ch2qz3(request):
+    quiz = '2.3'
+    failed = False
+    if request.method == 'POST':
+        form = Ch2ex3(request.POST)
+        if form.is_valid():
+            answers = Answers.objects.get(quiz=quiz)
+
+            for q in form.cleaned_data:
+                if form.cleaned_data[q] != getattr(answers,q):
+                    failed = True
+            if failed:
+                return render(request, 'exercises/ch2ex3_form.html', {'form': form})
+            else:
+                progress = request.user.progress
+                progress.ch2ex3 = True
+                progress.save()
+                return render(request, 'exercises/ex_completed.html', {'exercise': quiz})
+
+    else:
+        form = Ch2ex3()
+    context = {
+        'title': 'Quiz 2.3 - H|H',
+        'form': form
+    }
+    return render(request, 'exercises/ch2ex3_form.html', context)
+
+def ch2ex4(request):
+    context = {
+        'title': 'Section 2.4 - H|H'
+    }
+    return render(request, 'exercises/ch2ex4.html', context)
+
+def ch2qz4(request):
+    quiz = '2.4'
+    failed = False
+    if request.method == 'POST':
+        form = Ch2ex4(request.POST)
+        if form.is_valid():
+            answers = Answers.objects.get(quiz=quiz)
+
+            for q in form.cleaned_data:
+                if form.cleaned_data[q] != getattr(answers,q):
+                    failed = True
+            if failed:
+                return render(request, 'exercises/ch2ex4_form.html', {'form': form})
+            else:
+                progress = request.user.progress
+                progress.ch2ex4 = True
+                progress.save()
+                return render(request, 'exercises/ex_completed.html', {'exercise': quiz})
+
+    else:
+        form = Ch2ex4()
+    context = {
+        'title': 'Quiz 2.4 - H|H',
+        'form': form
+    }
+    return render(request, 'exercises/ch2ex4_form.html', context)

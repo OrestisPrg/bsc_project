@@ -60,5 +60,16 @@ class Ch1ex3(forms.Form):
       (4, ("Footprinting"))
       ), widget=forms.RadioSelect)
 
-class Ch2ex1(forms.Form):
-    q1 = forms.CharField(label='1: Perform a scan on a UDP ports. Which port is open? Please provide its number.', max_length=100)
+class Ch2ex2(forms.Form):
+    q1 = forms.CharField(label='1: Perform a scan on Kali\'s UDP ports. Which port is open? Please provide its number.', max_length=100)
+    q2 = forms.CharField(label='2: Perform a scan on Metasploitable\'s 10 most popular ports. What is the number of the last port displayed?', max_length=100)
+    q3= forms.CharField(label='3: Use nmap to determine what version of Linux is Metasploitable running. Please provide the version number as displayed.', max_length=100)
+    q4 = forms.CharField(label='4: Scan the port with the number 6667. What is the name of the service running on that port?', max_length=100)
+    q5 = forms.CharField(label='5: On which port does the service with version "vsftpd 2.4.3" run on? Please provide its number.', max_length=100)
+
+
+class Ch2ex3(forms.Form):
+    q1 = forms.CharField(label='1: Lorem Ipsum.', max_length=100)
+
+class Ch2ex4(forms.Form):
+    q1 = forms.CharField(label='1: Lorem Ipsum.', max_length=100)

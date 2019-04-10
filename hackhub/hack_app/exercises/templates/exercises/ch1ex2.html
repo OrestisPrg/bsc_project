@@ -14,11 +14,11 @@
 </div>
 
 <div class="container my-4">
-  <div class="row">
+  <div class="row col-md-12">
     <h3 class="font-weight-bold">Users</h3>
   </div>
   <hr class="divider">
-  <div class="row">
+  <div class="row col-md-12">
     <p>
       A UNIX-like system's user can either be a regular user, an administrative user or a service account.
       <ul>
@@ -40,10 +40,10 @@
       </ul>
     </p>
   </div>
-  <div class="row mt-4">
+  <div class="row col-md-12 mt-4">
       <h4> Sudo </h4>
   </div>
-  <div class="row">
+  <div class="row col-md-12">
     <p>
       While a superuser is authorised to use all commands and has access to all sensitive files on the system, regular users have limited
       access to particular files and directories (such as system files) and to which commands they can use and where. Limiting
@@ -57,18 +57,18 @@
       <big> Usage: </big> Before typing a command that requires root privileges to be carried out, the user must initially type sudo in a the terminal: <code> sudo [command] </code>
     </p>
   </div>
-  <div class="row">
+  <div class="row col-md-12">
     <p class="font-italic small">
       You must always perform tasks working as a regular user unless the directory or files you are working on
       require root priviledges. Working as root on regular directories/files will not only change their permissions to root, but
       prevents you from accidentally deleting or altering critical operating system files.
     </p>
   </div>
-  <div class="row mt-4">
+  <div class="row col-md-12 mt-4">
     <h4 class="font-weight-bold"> Permissions </h4>
   </div>
   <hr class="divider">
-  <div class="row">
+  <div class="row col-md-12">
     <p>
       While practising <code> ls </code> in the previous section, you might have noticed that <code> ls -l</code> outputs a string of characters for each
       of the working directory's contents as can be seen in the screenshot below.<br />
@@ -98,10 +98,10 @@
       </ol>
     </p>
   </div>
-  <div class="row">
+  <div class="row col-md-12">
     <h4> Changing Permissions & Owner</h4>
   </div>
-  <div class="row">
+  <div class="row col-md-12">
     <p>
       You can change the permissions of a file or multiple files for your user account using the <code> chmod </code> command. The permission modifications are defined by using the
       <code> + </code> or <code> - </code> symbol denoting the addition or removal of a permission corre spondingly, immediately followed by the permission type (<code> r, w, x</code>)
@@ -111,7 +111,7 @@
     <em> <b>Example: </b><code> chmod g+w passwords.txt</code> will enable the group of owners to modify the passwords.txt file.</em>
     </p>
   </div>
-  <div class="row">
+  <div class="row col-md-12">
     <p>
       The owner of a file or multiple files can also be change with the <code> chown </code> command.<br />
       <br />

@@ -5,11 +5,11 @@
 <div class="container">
   <div class="row jumbotron">
     <div class="col-md-8">
-      <h1 class="font-weight-bold"> Footprinting with Command-line based Tools </h1>
-      <h2> 2.1: Nmap (Network Mapper) </h2>
+      <h1 class="font-weight-bold"> Command-line Tools for Hacking </h1>
+      <h2> 2.2: Nmap (Network Mapper) </h2>
     </div>
     <div class="col-md-4 align-self-center">
-      <a class="btn btn-warning float-right" href="{% url 'ch2ex1' %}" role="button">Back</a>
+      <a class="btn btn-warning float-right" href="{% url 'ch2ex2' %}" role="button">Back</a>
     </div>
   </div>
 
@@ -18,14 +18,14 @@
   </div>
   <div class="row">
     <p>
-      Login to the Kali Linux virtual machine using "hackhub" as both the username and the password and open a new terminal from the sidebar on the left.</li>
+      Start both Kali and Metasploitable VM and login to both using "hackhub" for Kali and "msfadmin" for Metasploitable. You will need to use the machines' IP addresses which can be found using the <code> ifconfig </code> command as mentioned before.
     </p>
   </div>
 
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <fieldset class="form-group my-4">
-      <legend class="border-bottom mb-4">Quiz 1.1</legend>
+      <legend class="border-bottom mb-4">Quiz 2.2</legend>
       {{ form|crispy  }}
     </fieldset>
     <div class="form-group">

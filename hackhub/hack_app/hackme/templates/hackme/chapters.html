@@ -1,79 +1,91 @@
 {% extends "hackme/base.html" %}
 {% block content %}
 
-<h1> CHAPTERS </h1>
-
-<div id="accordion">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-        <button class="btn btn-link text-decoration-none" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <h4 class="mb-0">  Chapter 1: Introduction & Basics</h4>
-        </button>
-    </div>
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-        <ul class="list-group">
-          <li class="list-group-item"><a href="{% url 'ch1ex1' %}"> 1.1: The Command Line Interface </a> </li>
-          <li class="list-group-item"><a href="{% url 'ch1ex2' %}"> 1.2: Users & Permissions </a> </li>
-          <li class="list-group-item"><a href="{% url 'ch1ex3' %}">  1.3: Introduction to Ethical Hacking </a> </li>
-        </ul>
-      </div>
+<div class="container">
+  <div class="row col-md-12 justify-content-center text-center">
+    <div class="alert alert-warning alert-dismissible fade show" style="width:100%">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      Please make sure that you first read and understand the <a href="{% url 'hackme-about' %}" class="alert-link"> Get Started Guide</a> before going through the chapters.
     </div>
   </div>
 
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed text-decoration-none" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <h4 class="mb-0">  Chapter 2: Footprinting with Command-line based Tools </h4>
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-        <ul class="list-group">
-          <li class="list-group-item"><a href="{% url 'ch2ex1' %}"> 2.1: Nmap </a> </li>
-          <li class="list-group-item"><a href="#"> 2.2: Nmap </a> </li>
-          <li class="list-group-item"> 2.3: Burp Suite </li>
-          <li class="list-group-item"> 2.4: Password Brute-Forcing </li>
-        </ul>
+  <div class="row col-md-12">
+    <h2> Chapters </h2>
+  </div>
+  <hr class="divider" />
+
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+          <button class="btn btn-link text-decoration-none" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h4 class="mb-0">  Chapter 1: Introduction & Basics</h4>
+          </button>
+      </div>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item"><a href="{% url 'ch1ex1' %}"> 1.1: The Command Line Interface </a> </li>
+            <li class="list-group-item"><a href="{% url 'ch1ex2' %}"> 1.2: Users & Permissions </a> </li>
+            <li class="list-group-item"><a href="{% url 'ch1ex3' %}">  1.3: Introduction to Ethical Hacking </a> </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed text-decoration-none" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          <h4 class="mb-0">  Chapter 3: Attacks</h4>
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-        <ul class="list-group">
-          <li class="list-group-item"><a href="{% url 'ch1ex1' %}"> 3.1: HTML Injection </a> </li>
-          <li class="list-group-item"><a href="{% url 'ch1ex2' %}"> 3.2: Cross Site Scripting (XSS) </a> </li>
-          <li class="list-group-item"> 3.3: SQL Injection </li>
-          <li class="list-group-item"> 3.4: ARP Poisoning </li>
-        </ul>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed text-decoration-none" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <h4 class="mb-0">  Chapter 2: Command-line Tools for Hacking </h4>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item"><a href="{% url 'ch2ex1' %}"> 2.1: Setting up your Hacking Environment </a> <span class="badge badge-danger"> Required for following sections</span></li>
+            <li class="list-group-item"><a href="{% url 'ch2ex2' %}"> 2.2: Nmap (Network Mapper) </a> </li>
+            <li class="list-group-item"><a href="{% url 'ch2ex3' %}"> 2.3: Packet Analysers: Wireshark & tcpdump </a> </li>
+            <li class="list-group-item"><a href="{% url 'ch2ex4' %}"> 2.4: Burp Suite </a> </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="card">
-    <div class="card-header" id="headingFour">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed text-decoration-none" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          <h4 class="mb-0">  Chapter 4: The Metasploit Framework</h4>
-        </button>
-      </h5>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed text-decoration-none" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <h4 class="mb-0">  Chapter 3: Attacks</h4>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item"><a href="{% url 'ch1ex1' %}"> 3.1: HTML Injection </a> </li>
+            <li class="list-group-item"><a href="{% url 'ch1ex2' %}"> 3.2: Cross Site Scripting (XSS) </a> </li>
+            <li class="list-group-item"> 3.3: SQL Injection </li>
+            <li class="list-group-item"> 3.4: ARP Poisoning </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-      <div class="card-body">
-        <p>
-          ...
-        </p>
+
+    <div class="card">
+      <div class="card-header" id="headingFour">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed text-decoration-none" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            <h4 class="mb-0">  Chapter 4: The Metasploit Framework</h4>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+        <div class="card-body">
+          <p>
+            ...
+          </p>
+        </div>
       </div>
     </div>
   </div>

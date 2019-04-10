@@ -1,0 +1,39 @@
+{% extends "hackme/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-md-8">
+      <h1 class="font-weight-bold"> Command-line Tools for Hacking </h1>
+      <h2> 2.3: Packet Analysers: Wireshark & tcpdump </h2>
+    </div>
+    <div class="col-md-4 align-self-center">
+      <a class="btn btn-warning float-right" href="{% url 'ch2ex2' %}" role="button">Back</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4>Preparation</h4>
+  </div>
+  <div class="row">
+    <p>
+      Login to the Kali Linux virtual machine using "hackhub" as both the username and the password and open a new terminal from the sidebar on the left.</li>
+    </p>
+  </div>
+
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group my-4">
+      <legend class="border-bottom mb-4">Quiz 2.3</legend>
+      {{ form|crispy  }}
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-outline-info" type="submit">Submit</button>
+    </div>
+  </form>
+
+  <hr class="divider my-4">
+</div>
+
+{% endblock content %}

@@ -5,8 +5,8 @@
 <div class="container">
   <div class="row jumbotron">
     <div class="col-md-8">
-      <h1 class="font-weight-bold"> Command-line Tools for Hacking </h1>
-      <h2> 2.3: Burp Suite </h2>
+      <h1 class="font-weight-bold"> Essential Tools </h1>
+      <h2> 2.4: Burp Suite </h2>
     </div>
     <div class="col-md-4 align-self-center">
       <a class="btn btn-warning float-right" href="{% url 'ch2ex2' %}" role="button">Back</a>
@@ -18,7 +18,12 @@
   </div>
   <div class="row">
     <p>
-      Login to the Kali Linux virtual machine using "hackhub" as both the username and the password and open a new terminal from the sidebar on the left.</li>
+      After configuring the proxy server, in your browser, navigate to Metasploitable's IP Address. From there, you can access 4 intentionally vulnerable web application.
+      In Burp Suite, navigate to proxy > intercept. Here you are able to enable or disable the intercepter. When enabled, the intercepter will display the HTTP requests
+      and allow you to view or modify them before sending them. Therefore, if you have already noticed that web pages are not loading properly when it is enabled, it is
+      because you need to manually forward the requests using the "Forward" button.<br />
+      <br />
+      Visit the DVWA web application using the link provided. Turn on the interceptor and refresh the page. Using the intercepted request answer Question 1.
     </p>
   </div>
 

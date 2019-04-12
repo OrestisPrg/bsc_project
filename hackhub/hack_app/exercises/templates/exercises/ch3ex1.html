@@ -1,0 +1,113 @@
+{% extends "hackme/base.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-md-8">
+      <h1 class="display-5 font-weight-bold"> Performing Attacks  </h1>
+      <h2> 3.1: The Metasploit Framework </h2>
+    </div>
+    <div class="col-md-4 align-self-center">
+        <a class="btn btn-success float-right" href="#" target="_blank" role="button">Take Quiz</a>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="row col-md-12">
+    <p>
+      The Metasploit framework is one of the leading penetration testing, vulnerability detection and exploitation suite, consisting of a collection of modules which combined, can cover every phase of a penetration test.
+      With a wide variety of modules, tools and auxiliaries available, Metasploit can automate the discovery and exploitation of vulnerabilities allowing to break down an attack into small, contained tasks.
+      It also supports the creation of custom exploits allowing the community to contribute and share their exploits.
+    </p>
+  </div>
+
+  <div class="row col-md-12 mt-4">
+    <h4> Modules </h4>
+  </div>
+  <hr class="divider">
+  <div class="row col-md-12">
+    <p>
+      Modules can be desribed as independent pieces of code, providing functionality for a large number of tasks that can be performed using Metasploit. Metasploit's modules generally belong into one of three classes: exploits, auxiliaries and post-exploitation modules. Those modules are located in <code> /usr/share/metasploit-framework/modules/ </code> on Kali and are categorised by Metasploit in 6 different directories in regards to their functionality:
+      <ul>
+        <li class="my-2">
+           <b>Exploit Modules </b> can automatically exploit vulnerabilities found on a target by executing a sequence of commands.
+           With an exploit can gain access to the target commonly in the form of a shell controlling the target.
+           Metasploit has a large collection of exploits organised in different categories such as operating systems, applications or application types.
+           The exploits are located in <code> /usr/share/metasploit-framework/modules/exploits/ </code> on Kali. As an example the directory <em> windows </em> contains a wide variety of exploitation code for different components of a windows system which can be used to attack the system through known vulnerabilites of those components in an automated procedure.
+         </li>
+        <li class="my-2">
+          <b> Payloads </b> define how the attacker is connected to a successfully compromised system and the following actions that will be taken on the system.
+          They essentially are a pieces of shell code that is run on the target system and can open a command shell or a Meterpreter.
+          Meterpreters extend the capabilities of a basic payload by creating a dynamic and advanced environment for the attacker with an interactive shell.
+          With a Meterpreter shell, attackers can acquire data from the target such as files or password hashes.
+          Payloads can be reverse shell payloads or bind shell payloads depending on the direction of the connection established after a target is successfuly exploited.</li>
+        <li class="my-2">
+          <b>Auxiliaries </b> are the modules which are not used for exploitation and payload delivery but to perform a number of different arbitrary actions. Their functionality includes scanning, sniffing and fuzzing. Auxiliaries can be found in <code> /usr/share/metasploit-framework/modules/auxiliary/ </code> on Kali.
+        </li>
+        <li class="my-2">
+          <b> Encoders </b> encode generated payload shellcode in order to be compatible with the target. The modification process includes the manipulation of specific characters, the code's encoding according to the operating system's architecture, changing the code's language format or even inserting it into an existing executable file.
+        </li>
+        <li class="my-2">
+          <b> Nops </b> are again used to encode payloads in order to ensure they are not detected by specialised software and are compatible with the target's architecture. They achieve that by removing bad characters from the payload and by adding randomness.
+        </li>
+        <li class="my-2">
+          <b> Post </b> are modules that are used after a system has been exploited successfuly. Post modules ensure that the attacker's connection to the compromised system will remain persistent and the attacker will maintain their access to the system. Additionaly, they can provide further and deeper access to the target's infrastructure and the its network and cover the attacker's tracks in the process as well as set a backdoor to ensure the attacker's permanent access.
+        </li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="row col-md-12 mt-4">
+      <h4> Project Management with Metasploit </h4>
+  </div>
+  <hr class="divider">
+  <div class="row col-md-12">
+    <p>
+      Metasploit provides the capability of managing and storing data in a postgreSQL database such as retrieved importand fields, generated data from footprinting as well as brute-forcing credentials. Using workspaces, Metasploit can separate a project's data from different tasks and other projects.
+    </p>
+  </div>
+
+  <div class="row col-md-12 mt-4">
+    <h4> Configuration & Usage </h4>
+  </div>
+  <hr class="divider">
+  <div class="row col-md-12 my-4 ">
+    <big class="text-center"> Start the metasploit console with <code> msfconsole </code>.</big>
+  </div>
+  <hr class="divider">
+  <div class="row col-md-12 my-4">
+    <h5> Configuring the database </h5>
+  </div>
+  <div class="row col-md-12">
+    <p>
+      Before launching an attack, the postgreSQL database must be initialised and launched.
+      <ol>
+        <li class="my-2"> Start the PostgreSQL service with <code>service postgresql start</code>. </li>
+        <li class="my-2"> Initialise the database and connect to it with <code> msfdb init</code>. </li>
+        <li class="my-2"> Create a new workspace with  <code> workspace -a [name] </code> </li>
+        <li class="my-2"> Check the database connection with <code> db_status </code></li>
+        <li class="my-2"> In case the database is not connected, use the following command to run configuration file that was created when the database was initialised <code> db_connect -y /usr/share/metasploit-framework/config/database.yml </code>.</li>
+      </ol>
+    </p>
+  </div>
+
+  <div class="row col-md-12 my-4">
+    <h5> Using a module </h5>
+  </div>
+  <div class="row col-md-12">
+    <p>
+      As mentioned above, metasploit offers a vast selection of modules available. You can manually browse the modules directory in search of a specific module, or use the search command
+      <ol>
+        <li class="my-2"> Start the PostgreSQL service with <code>service postgresql start</code>. </li>
+        <li class="my-2"> Initialise the database and connect to it with <code> msfdb init</code>. </li>
+        <li class="my-2"> Create a new workspace with  <code> workspace -a [name] </code> </li>
+        <li class="my-2"> Check the database connection with <code> db_status </code></li>
+        <li class="my-2"> In case the database is not connected, use the following command to run configuration file that was created when the database was initialised <code> db_connect -y /usr/share/metasploit-framework/config/database.yml </code>.</li>
+      </ol>
+    </p>
+  </div>
+
+</div>
+
+{% endblock content %}

@@ -40,6 +40,7 @@ urlpatterns = [
     path('chapter2/exercise3/quiz', exercises_views.ch2qz3, name='ch2qz3'),
     path('chapter2/exercise4', exercises_views.ch2ex4, name='ch2ex4'),
     path('chapter2/exercise4/quiz', exercises_views.ch2qz4, name='ch2qz4'),
+    path('chapter3/exercise1', exercises_views.ch3ex1, name='ch3ex1'),
     path('completed', exercises_views.ex_completed, name='ex_completed'),
 
     path('password-reset/',

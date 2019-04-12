@@ -215,3 +215,10 @@ def ch2qz4(request):
         'form': form
     }
     return render(request, 'exercises/ch2ex4_form.html', context)
+
+
+def ch3ex1(request):
+    context = {
+        'title': 'Section 3.1 - H|H'
+    }
+    return render(request, 'exercises/ch3ex1.html', context)

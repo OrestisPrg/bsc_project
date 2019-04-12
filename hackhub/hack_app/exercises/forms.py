@@ -72,4 +72,4 @@ class Ch2ex3(forms.Form):
     q1 = forms.CharField(label='1: Lorem Ipsum.', max_length=100)
 
 class Ch2ex4(forms.Form):
-    q1 = forms.CharField(label='1: Lorem Ipsum.', max_length=100)
+    q1 = forms.CharField(label='1: What is the security attribute set to in the cookie displayed in the intercepted request?', max_length=100)

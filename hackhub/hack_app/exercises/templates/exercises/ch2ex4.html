@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row jumbotron">
     <div class="col-md-8">
-      <h1 class="display-5 font-weight-bold"> Command-line Tools for Hacking  </h1>
+      <h1 class="display-5 font-weight-bold"> Essential Tools </h1>
       <h2> 2.4: Burp Suite </h2>
     </div>
     <div class="col-md-4 align-self-center">
@@ -16,61 +16,62 @@
 <div class="container my-4">
   <div class="row col-md-12">
     <p>
-      Packet analysers are software specialised in monitoring and intercept network traffic. Packets that pass over the network can be logged and itercepted,
-      in a process called packet capture. A packet analyser can decode the captured package's raw data, revealing the information contained in the package often
-      relevant to a user's activity. The contained information include addresses, visited websites, protocols used, dates, headers etc. Captured packages and traffic
-      are usually logged in .pcap files.
-
+      Burp Suite is a graphical Web Penetration Testing framework specialised in vulnerability detection.
+      With a collection of tools available, it is able identify and verify attack vectors web applications are vulnerable to and provide feedback on them to the user.<br />
+      <br />
+      Fundamentally, Burp Suite can intercept and analyse traffic when the user browses a web application by configuring a web browser to route traffic through Burp Suite's proxy server.
+      The proxy, acting as man-in-the-middle, can capture each request to and from the target web application which can then be manipulated or replayed revealing potential injection points and unintended usages of the application that can be abused.<br />
+      <br />
+      Kali Linux comes with the free community version of Burp Suite pre-installed, which includes a number of different tools that can be useful to a penetration testing attack.
     </p>
   </div>
 
   <div class="row col-md-12 mt-4">
-    <h4 class="font-weight-bold"> tcpdump </h4>
+    <h4> Tools </h4>
   </div>
   <hr class="divider">
   <div class="row col-md-12">
     <p>
-      tcpdump is a command-line packet analyser which has the ability to log TCP/IP, UDP and a lot more packages over the network the machine is connected to.
-      Any unencrypted traffic passing through a system can be intercepted by a user with elevated priviledges, providing valuable information such as user credentials.
-      Tcpdump is pre-installed on Kali.
+      <ul>
+        <li class="my-2"><b>HTTP Proxy: </b>Captures traffic from/to web application by operating as a proxy server, from which the requests pass through. </li>
+        <li class="my-2"><b>Scanner: </b>Performs secuirity scans, detecting potential vulnerabilities of a web application automatically. </li>
+        <li class="my-2"><b>Intruder: </b> Performs automated attacks on web applications. By generating malicious HTTP requests it can attempt numerous attacks such as SQL Injections, Cross Site Scripting (XSS) as well as brute-force attacks.</li>
+        <li class="my-2"><b>Spider: </b>Browses the web application systematically in order to discover its overall structure, content and functionality and create a map of its internal architecture. </li>
+        <li class="my-2"><b>Repeater: </b> Manipulates, manages and repeats HTTP requests in order to test the target's security and detect vulnerabilities.</li>
+        <li class="my-2"><b>Decoder</b> </li>
+        <li class="my-2"><b>Comparer</b> </li>
+        <li class="my-2"><b>Extender</b> </li>
+        <li class="my-2"><b>Sequencer</b> </li>
+      </ul>
     </p>
   </div>
 
   <div class="row col-md-12 mt-4">
-    <h4> Usage </h4>
-  </div>
-  <div class="row col-md-12">
-    <p>
-      You can start viewing and capturing packets by simply using the <code> tcpdump </code> command. By default, it will monitor traffic from the "eth0" interface by you can specify another interface using the <code> -i </code> option.
-    </p>
-    <ul>
-      <li class="my-2">
-        <b> Save traffic in a .pcap file with: </b> <code class="command"> tcpdump -w [filename] </code>
-      </li>
-      <hr class="divider">
-      <li class="my-2">
-        <b> Read captured traffic from a file: </b> <code class="command"> tcpdump -r [filename]  </code><br />
-      </li>
-      <hr class="divider">
-      <li class="my-2">
-        <b> Filter captured traffic for packets to/from a specific host: </b> <code class="command"> tcpdump -r [filename] host [ip_address] </code>
-      </li>
-      <hr class="divider">
-      <li>
-        <b> Prevent packet convertion and DNS resolution: </b> <code> tcpdump -nn </code><br />
-      </li>
-    </ul>
-  </div>
-  <div class="row col-md-12 mt-4">
-    <h4 class="font-weight-bold"> Wireshark </h4>
+    <h4> Configuration </h4>
   </div>
   <hr class="divider">
   <div class="row col-md-12">
     <p>
-      Wireshark is also a packet analyser with a very similar functionality to tcpdump with the difference that it provides a GUI. Due to its graphical interface, Wireshark provides filtering and sorting that makes the task of finding a specific packet much easier compared to the command-line based tcpdump.
-      Often capturing traffic with tcpdump might be an easier approach, which can then be analysed using Wireshark's interface. You can find Wireshark on your Kali VM.
+      Before intercepting traffic, you need to configure your web browser to route traffic through Burp's proxy. To do that on your Kali VM:
+    </p>
+    <ol>
+      <li class="my-2"> Launch Burp Suite.</li>
+      <li class="my-2"> From the tab menu, select the proxy tab and then the options sub-tab. </li>
+      <li class="my-2"> Click on the cog button on the left and select "Restore Defaults".</li>
+      <li class="my-2"> You should see an entry in the table of this panel with interface set to "127.0.0.1:8080". This is the default port the proxy is configured to.</li>
+      <li class="my-2"> Launch Firefox from the taskbar on the left. </li>
+      <li class="my-2"> From the menu on the top right, select "Preferences". </li>
+      <li class="my-2"> On the "General" tab scroll down until you see the "Network Proxy" section and click the "Settings..." button.</li>
+      <li class="my-2"> Select the "manual proxy configuration" option and in the "HTTP Proxy" field enter "127.0.0.1". </li>
+      <li class="my-2"> Check the "Use this proxy server for all protocols" box. </li>
+      <li class="my-2"> Click the OK button and close any remaining dialogs.</li>
+    </ol>
+    <p>
+      If you followed the above steps correctly the network traffic can now be intercepted by Burp Suite.
     </p>
   </div>
+
+
 
 </div>
 

@@ -8,7 +8,7 @@
       <h2> 3.1: The Metasploit Framework </h2>
     </div>
     <div class="col-md-4 align-self-center">
-        <a class="btn btn-success float-right" href="#" target="_blank" role="button">Take Quiz</a>
+        <a class="btn btn-success float-right" href="{% url 'ch3qz1' %}" target="_blank" role="button">Take Quiz</a>
     </div>
   </div>
 </div>
@@ -16,7 +16,7 @@
 <div class="container my-4">
   <div class="row col-md-12">
     <p>
-      The Metasploit framework is one of the leading penetration testing, vulnerability detection and exploitation suite, consisting of a collection of modules which combined, can cover every phase of a penetration test.
+      The Metasploit framework is one of the leading penetration testing, vulnerability detection and exploitation suites, consisting of a collection of modules which combined, can cover every phase of a penetration test.
       With a wide variety of modules, tools and auxiliaries available, Metasploit can automate the discovery and exploitation of vulnerabilities allowing to break down an attack into small, contained tasks.
       It also supports the creation of custom exploits allowing the community to contribute and share their exploits.
     </p>
@@ -97,13 +97,27 @@
   </div>
   <div class="row col-md-12">
     <p>
-      As mentioned above, metasploit offers a vast selection of modules available. You can manually browse the modules directory in search of a specific module, or use the search command
+      As mentioned above, metasploit offers a vast selection of modules available. You can manually browse the modules directory in search of a specific module, or use the search command.
+      You can always use the <code> help </code> command to view additional information and guidance about a specific element.
       <ol>
-        <li class="my-2"> Start the PostgreSQL service with <code>service postgresql start</code>. </li>
-        <li class="my-2"> Initialise the database and connect to it with <code> msfdb init</code>. </li>
-        <li class="my-2"> Create a new workspace with  <code> workspace -a [name] </code> </li>
-        <li class="my-2"> Check the database connection with <code> db_status </code></li>
-        <li class="my-2"> In case the database is not connected, use the following command to run configuration file that was created when the database was initialised <code> db_connect -y /usr/share/metasploit-framework/config/database.yml </code>.</li>
+        <li class="my-2">
+          <big><b>Search: </b> <code> msf search [keyword]:[filter] [word]</code> </big> <br />
+          You can search for modules containing a certain word and filter your search using keywords in the following manner: <br />
+          You can use keywords like <b> name, platform, author, type </b> to search for modules of a specific category correspondingly.
+        </li>
+        <li class="my-2">
+         <big><b>Use: </b>  <code> use [module_location] </code> </big><br />
+         To use a specific module, you need to specify it's path (which can be acquired using search).
+        </li>
+        <li class="my-2">
+           <big> <b>View Options: </b> <code> show options </code> </big> <br />
+           Before using a module, most of them will require you to set some parameters such as the target IP address, port etc. You can view those parameters and their default values using
+        </li>
+        <li class="my-2">
+           <big><b>Set: </b> <code> set [parameter] [value] </code> </big> <br />
+           To set each of the parameters, you need to specify the parameter and then the value it will be set to.
+        </li>
+        <li class="my-2"> <big><b>Exploit/Run: </b></big> Upon setting the parameters, you are finally ready to use the module. Depending on if it's an exploit or not, this can be done by simply using <code> exploit </code> or <code> run </code> respectively.</li>
       </ol>
     </p>
   </div>

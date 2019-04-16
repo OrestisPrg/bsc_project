@@ -41,6 +41,13 @@ urlpatterns = [
     path('chapter2/exercise4', exercises_views.ch2ex4, name='ch2ex4'),
     path('chapter2/exercise4/quiz', exercises_views.ch2qz4, name='ch2qz4'),
     path('chapter3/exercise1', exercises_views.ch3ex1, name='ch3ex1'),
+    path('chapter3/exercise1/quiz', exercises_views.ch3qz1, name='ch3qz1'),
+    path('chapter3/exercise2', exercises_views.ch3ex2, name='ch3ex2'),
+    path('chapter3/exercise2/quiz', exercises_views.ch3qz2, name='ch3qz2'),
+    path('chapter3/exercise3', exercises_views.ch3ex3, name='ch3ex3'),
+    path('chapter3/exercise3/quiz', exercises_views.ch3qz3, name='ch3qz3'),
+    path('chapter3/exercise4', exercises_views.ch3ex4, name='ch3ex4'),
+    path('chapter3/exercise4/quiz', exercises_views.ch3qz4, name='ch3qz4'),
     path('completed', exercises_views.ex_completed, name='ex_completed'),
 
     path('password-reset/',

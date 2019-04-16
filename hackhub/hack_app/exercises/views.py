@@ -222,3 +222,129 @@ def ch3ex1(request):
         'title': 'Section 3.1 - H|H'
     }
     return render(request, 'exercises/ch3ex1.html', context)
+
+
+def ch3qz1(request):
+    quiz = '3.1'
+    failed = False
+    if request.method == 'POST':
+        form = Ch3ex1(request.POST)
+        if form.is_valid():
+            answers = Answers.objects.get(quiz=quiz)
+
+            for q in form.cleaned_data:
+                if form.cleaned_data[q] != getattr(answers,q):
+                    failed = True
+            if failed:
+                return render(request, 'exercises/ch3ex1_form.html', {'form': form})
+            else:
+                progress = request.user.progress
+                progress.ch3ex1 = True
+                progress.save()
+                return render(request, 'exercises/ex_completed.html', {'exercise': quiz})
+
+    else:
+        form = Ch3ex1()
+    context = {
+        'title': 'Quiz 3.1 - H|H',
+        'form': form
+    }
+    return render(request, 'exercises/ch3ex1_form.html', context)
+
+def ch3ex2(request):
+    context = {
+        'title': 'Section 3.2 - H|H'
+    }
+    return render(request, 'exercises/ch3ex2.html', context)
+
+
+def ch3qz2(request):
+    quiz = '3.2'
+    failed = False
+    if request.method == 'POST':
+        form = Ch3ex2(request.POST)
+        if form.is_valid():
+            answers = Answers.objects.get(quiz=quiz)
+
+            for q in form.cleaned_data:
+                if form.cleaned_data[q] != getattr(answers,q):
+                    failed = True
+            if failed:
+                return render(request, 'exercises/ch3ex2_form.html', {'form': form})
+            else:
+                progress = request.user.progress
+                progress.ch3ex2 = True
+                progress.save()
+                return render(request, 'exercises/ex_completed.html', {'exercise': quiz})
+
+    else:
+        form = Ch3ex2()
+    context = {
+        'title': 'Quiz 3.2 - H|H',
+        'form': form
+    }
+    return render(request, 'exercises/ch3ex2_form.html', context)
+
+def ch3ex3(request):
+    context = {
+        'title': 'Section 3.3 - H|H'
+    }
+    return render(request, 'exercises/ch3ex3.html', context)
+
+def ch3qz3(request):
+    quiz = '3.3'
+    failed = False
+    if request.method == 'POST':
+        form = Ch3ex3(request.POST)
+        if form.is_valid():
+            answers = Answers.objects.get(quiz=quiz)
+
+            for q in form.cleaned_data:
+                if form.cleaned_data[q] != getattr(answers,q):
+                    failed = True
+            if failed:
+                return render(request, 'exercises/ch3ex3_form.html', {'form': form})
+            else:
+                progress = request.user.progress
+                progress.ch3ex3 = True
+                progress.save()
+                return render(request, 'exercises/ex_completed.html', {'exercise': quiz})
+    else:
+        form = Ch3ex3()
+    context = {
+        'title': 'Quiz 3.3 - H|H',
+        'form': form
+    }
+    return render(request, 'exercises/ch3ex3_form.html', context)
+
+def ch3ex4(request):
+    context = {
+        'title': 'Section 3.4 - H|H'
+    }
+    return render(request, 'exercises/ch3ex4.html', context)
+
+def ch3qz4(request):
+    quiz = '3.4'
+    failed = False
+    if request.method == 'POST':
+        form = Ch3ex4(request.POST)
+        if form.is_valid():
+            answers = Answers.objects.get(quiz=quiz)
+
+            for q in form.cleaned_data:
+                if form.cleaned_data[q] != getattr(answers,q):
+                    failed = True
+            if failed:
+                return render(request, 'exercises/ch3ex4_form.html', {'form': form})
+            else:
+                progress = request.user.progress
+                progress.ch3ex4 = True
+                progress.save()
+                return render(request, 'exercises/ex_completed.html', {'exercise': quiz})
+    else:
+        form = Ch3ex4()
+    context = {
+        'title': 'Quiz 3.4 - H|H',
+        'form': form
+    }
+    return render(request, 'exercises/ch3ex4_form.html', context)

@@ -1,0 +1,91 @@
+{% extends "hackme/base.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-md-8">
+      <h1 class="display-5 font-weight-bold"> Performing Attacks  </h1>
+      <h2> 3.3: Brute-forcing Passwords </h2>
+    </div>
+    <div class="col-md-4 align-self-center">
+        <a class="btn btn-success float-right" href="{% url 'ch3qz3' %}" target="_blank" role="button">Take Quiz</a>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="row col-md-12">
+    <p>
+      In the previous section, we've managed to break into Metasploitable and open an interactive shell from where we can browse the system.
+      In this section, we will use this opportunity to identify the usernames of the system's accounts, which in turn can be used by a brute-forcing module to determine their passwords.
+      By brute-forcing we describe the trial-and-error process of trying all possible combinations of the usernames and passwords provided to a specialised software.
+
+    </p>
+  </div>
+
+  <div class="row col-md-12 mt-4">
+    <h4> Retrieving the users' usernames </h4>
+  </div>
+  <hr class="divider">
+  <div class="row col-md-12">
+    <p>
+      Assuming you have already broken into Metasploitable using the procedure described in the previous section, you can now browse the system's files.
+      To retrieve the usernames, we must view to contents of a file named passwd which is located in <code> /etc/passwd </code>.
+      <ul>
+        <li class="my-2"> Using the shell navigate to /etc/ and view the contents of <b>passwd </b>. </li>
+         You should now see a collection of entries. Each entry has 7 fields, separated by a semicolon. The first field is the username but we need to determine which entries we are interested in first.
+         The entries whose last field is <b>/bin/bash</b> indicate that this shell can be used by the specific user and therefore has enough priviledges to be of our interest.
+
+        <li class="my-2"> The accounts <b> service, user, postgres & msfadmin</b> satisfy the above requirements. </li>
+        We already know the password for msfadmin and by obtaining the other 3 usernames, we will use a brute-forcing software to find their passwords.
+      </ul>
+      </p>
+
+  </div>
+
+  <div class="row col-md-12 mt-4">
+    <h4> Brute-forcing using usernames </h4>
+  </div>
+  <hr class="divider">
+    <div class="row col-md-12">
+      <p>
+        In order to find the password for the usernames, we are going to use <b> Hydra </b> a tool capable of finding passwords by brute-forcing.
+        As an example we will try to find the password for <b> msfadmin </b> to demonstrate how Hydra works and if it can actually find the password.
+        <ol>
+          <li class="my-2"> Launch the Metasploit console in a new terminal. </li>
+          <li class="my-2"> Enter the following command <code> hydra -l msfadmin -e ns -t 1 ftp://[Metasploitable_ip_address]</code></li>
+          <ul>
+            Let's examine the command you have just typed:
+            <li> <b>-l </b> specifies the login username which in our case is msfadmin. If you want to use a file containing usernames use can use <b> -L </b> with the file's path as an argument.</li>
+            <li> <b>-e </b> enables spefic checks for the password. In this case <b> n </b> checks for a null password and <b> s </b> for the case the password is the same as the username.</li>
+            <li> <b>-t </b> specifies the number of tasks that will run in parallel. This is set to 1 in order to avoid freezing or breaking the connection in case the router cannot handle multiple connections</li>
+            <li> Finally Hydra is using the ftp protocol to remotely connect to Metasploitable and brute-force.</li>
+          </ul>
+          <li class="my-2"> Hit enter, and wait for Hydra to finish. The output should indicate that a matching password was found and is indeed the one we know. </li>
+        </ol>
+      </p>
+    </div>
+
+    <div class="row col-md-12 mt-4">
+      <h4> Brute-forcing with wordlists</h4>
+    </div>
+    <hr class="divider">
+      <div class="row col-md-12">
+        <p>
+          In the previous example, we were lucky enough to deal with accounts that have very insecure passwords. Of course, this is not always the case. Even though users will usually have stronger passwords
+          that their own username, there is a great possibility their password is still quite insequre. A lot of users use common words or patterns as their passwords in order to be easy to remember. Unfortunately,
+          wordlists are files that contain a very large number of common words and patterns and can be used in a brute-force attack. When provided with a username, a brute-forcing software can try all the possible combinations
+          of the username with the contents of the wordlist.
+          <ol>
+            <li class="my-2"> Launch the Metasploit console in a new terminal. </li>
+            <li class="my-2"> Enter the following command <code> hydra -l sys -P /usr/share/metasploit-framework/data/wordlists/password.lst ssh://[Metasploitable_ip_address]</code></li>
+            Now, using <b> -P </b> we specify that the wordlist "password.lst" will be used, which is provided by metasploit. Please note ssh is used instead of ftp used in the previous example.
+            <li class="my-2"> From the output, we can see that a valid password has been found and we can confirm that by using these credentials to login to Metasploitable. </li>
+          </ol>
+        </p>
+      </div>
+
+
+</div>
+
+{% endblock content %}

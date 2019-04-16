@@ -1,0 +1,39 @@
+{% extends "hackme/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-md-8">
+      <h1 class="font-weight-bold"> Performing Attacks </h1>
+      <h2> 3.2: Attacking Open Network Services & Ports </h2>
+    </div>
+    <div class="col-md-4 align-self-center">
+      <a class="btn btn-warning float-right" href="{% url 'ch3ex2' %}" role="button">Back</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4>Preparation</h4>
+  </div>
+  <div class="row">
+    <p>
+      Apart from port 21, Metasploitable has some more services that have backdoor. One of them is port 6667. Using this information, break into the system once again. As with the previous example, this backdoor is triggered using a specific string of characters. Please provide that string as your answer in question 1. You might find it useful to do some research on the specific service version or dig in the exploit module itself.
+    </p>
+  </div>
+
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group my-4">
+      <legend class="border-bottom mb-4">Quiz 3.2</legend>
+      {{ form|crispy  }}
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-outline-info" type="submit">Submit</button>
+    </div>
+  </form>
+
+  <hr class="divider my-4">
+</div>
+
+{% endblock content %}

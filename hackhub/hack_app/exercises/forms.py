@@ -69,7 +69,23 @@ class Ch2ex2(forms.Form):
 
 
 class Ch2ex3(forms.Form):
-    q1 = forms.CharField(label='1: Lorem Ipsum.', max_length=100)
+    q1 = forms.CharField(label='1: Quiz not developed for this section. You complete this quiz by providing the answer "test".', max_length=100)
 
 class Ch2ex4(forms.Form):
     q1 = forms.CharField(label='1: What is the security attribute set to in the cookie displayed in the intercepted request?', max_length=100)
+
+class Ch3ex1(forms.Form):
+    q1 = forms.CharField(label='1: Quiz not developed for this section. You complete this quiz by providing the answer "test".', max_length=100)
+
+class Ch3ex2(forms.Form):
+    q1 = forms.CharField(label='What is the string that triggers the backdoor?', max_length=100)
+
+class Ch3ex3(forms.Form):
+    q1 = forms.CharField(label='What is the password for "user"?', max_length=100)
+    q2 = forms.CharField(label='What is the password for "postgres"?', max_length=100)
+    q3 = forms.CharField(label='What is the password for "klog"?', max_length=100)
+
+class Ch3ex4(forms.Form):
+    q1 = forms.CharField(label='q1', max_length=100)
+    q2 = forms.CharField(label='q2', max_length=100)
+    q3 = forms.CharField(label='q3', max_length=100)

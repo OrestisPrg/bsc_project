@@ -1,0 +1,74 @@
+{% extends "hackme/base.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-md-8">
+      <h1 class="display-5 font-weight-bold"> Performing Attacks  </h1>
+      <h2> 3.4: Web Application Vulnerabilities  </h2>
+    </div>
+    <div class="col-md-4 align-self-center">
+        <a class="btn btn-success float-right" href="{% url 'ch3qz4' %}" target="_blank" role="button">Take Quiz</a>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="row col-md-12">
+    <p>
+      Up until now, we have focused on lower-level, mainly OS-related vulnerabilities. Metasploitable 2 has a number of intentionally vulnerable web applications that can be used to learn and practice on a broad range of web attacks.
+      You can access the web applications from Kali using your browser, by navigating to <code> http://[Metasploitable_ip_address] </code> a webpage providing links to the available web applications.
+    </p>
+  </div>
+
+  <div class="row col-md-12 mt-4">
+    <h3 class="font-weight-bold"> Mutillidae </h3>
+  </div>
+  <hr class="divider">
+  <div class="row col-md-12">
+    <p>
+      Mutillidae covers OWASP's top 10 web vulnerabilities, a well-defined listing of the most popular, common and critical risks web applications face today.
+      This includes Injection, Cross-Site Scripting (XSS), Broken Authentication and Cross Site Request Forgery. Mutillidae has 5 levels of difficulty, starting
+      from a completely insecure web app all the way up to a secure web app as well as 3 options when it to providing hints. Level 0 disables all hints, level 1 enables hints while level 2 enables detailed hints and tutorials.
+    </p>
+  </div>
+
+  <div class="row col-md-12 my-4">
+    <h4> Initial Setup and Configuration </h4>
+  </div>
+    <div class="row col-md-12">
+      <p>
+        In order to be able to use Mutillidae, you first need to correct some configuration settings in your Metasploitable VM.
+        <ol>
+          <li class="my-2"> Launch the Metasploitable VM and login as root using <b> msfadmin </b> for the username and the password. </li>
+          <li class="my-2"> Navigate to the root directory, which is 2 levels up from the current working directory. </li>
+          <li class="my-2"> Edit <em> config.inc </em> with <code> sudo nano var/www/mutillidae/config.inc </code> by changing the value of the field <b> $dbname </b> to <b> owasp10</b>.</li>
+          <li class="my-2"> Edit <em> php.ini </em> with <code> sudo nano etc/php5/cgi/php.ini </code> by changing the value of the field <b> allow_url_include </b> to <b> On </b>. You can locate the field by searching for "fopen" using <kbd> ctrl + w </kbd> </li>
+          <li> Restart Apache with the following command: <code> sudo etc/init.d/apache2 restart </code>. </li>
+        </ol>
+      </p>
+      <p>
+        Lastly, navigate to Mutillidae and click on the "Reset DB" button from the menu at the top.
+      </p>
+    </div>
+
+    <div class="row col-md-12 mt-4">
+      <h4> Injection Attacks </h4>
+    </div>
+    <hr class="divider">
+      <div class="row col-md-12">
+        <p>
+
+          <ol>
+            <li class="my-2"> Launch the Metasploit console in a new terminal. </li>
+            <li class="my-2"> Enter the following command <code> hydra -l sys -P /usr/share/metasploit-framework/data/wordlists/password.lst ssh://[Metasploitable_ip_address]</code></li>
+            Now, using <b> -P </b> we specify that the wordlist "password.lst" will be used, which is provided by metasploit. Please note ssh is used instead of ftp used in the previous example.
+            <li class="my-2"> From the output, we can see that a valid password has been found and we can confirm that by using these credentials to login to Metasploitable. </li>
+          </ol>
+        </p>
+      </div>
+
+
+</div>
+
+{% endblock content %}

@@ -26,6 +26,11 @@ class Progress(models.Model):
     ch1ex3 = models.BooleanField(default=False)
     ch2ex1 = models.BooleanField(default=False)
     ch2ex2 = models.BooleanField(default=False)
+    ch2ex3 = models.BooleanField(default=False)
+    ch2ex4 = models.BooleanField(default=False)
+    ch3ex1 = models.BooleanField(default=False)
+    ch3ex2 = models.BooleanField(default=False)
+    ch3ex3 = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.user.username} Progress'

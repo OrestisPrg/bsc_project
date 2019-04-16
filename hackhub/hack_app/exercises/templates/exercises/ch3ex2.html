@@ -1,0 +1,82 @@
+{% extends "hackme/base.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-md-8">
+      <h1 class="display-5 font-weight-bold"> Performing Attacks  </h1>
+      <h2> 3.2: Attacking Open Network Services & Ports </h2>
+    </div>
+    <div class="col-md-4 align-self-center">
+        <a class="btn btn-success float-right" href="{% url 'ch3qz2' %}" target="_blank" role="button">Take Quiz</a>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="row col-md-12">
+    <p>
+      On every computer system, ports identify specific processes and network services and by default certain network services are registered to specific ports.
+      While closed ports will refuse any sent packets and connections, open TCP and UDP ports will accept sent packets and are therefore a common target for attackers who seek to gain access to a system, acting as a remote entry point.
+      In order to exploit an open port, attackers need to identify the version of its service and ideally find a known vulnerability of this specific service.
+
+    </p>
+  </div>
+
+  <div class="row col-md-12 mt-4">
+    <h4> Exploiting Open Ports </h4>
+  </div>
+  <hr class="divider">
+  <div class="row col-md-12">
+    <p>
+        It's time to put into practice the skills you have gained by completing the previous sections. Combined, these skills will allow you to detect a vulnerable open port and exploit it in order to gain access to the Metasploitable VM.
+        The instructions below will demonstrate a simple attack using Nmap and Metasploit:
+      <ol>
+        <li class="my-2"> Launch Kali and Metasploitable VMs and login to both as in the previous sections. </li>
+        <li class="my-2"> In Kali, open a terminal and start the Metasploit console. </li>
+        <li class="my-2"> Using <b> Nmap </b>, scan Metasploitable, to find any open ports and the version of the services they are running. </li>
+        <li class="my-2"> You should see that port <b> 21 </b> is open and runs a service whose current version has proven to be vulnerable. Specifically, it contains a <b> backdoor </b>, which by definition is a way to access a system by bypassing any security mechanisms, authorisation and authentication. </li>
+        <li class="my-2"> Using the version of this service, search Metasploit to find any exploits that can be used to exploit this vulnerability. </li>
+        <li class="my-2"> You should now see a list available exploits that matched your search, one of which is designed for UNIX systems and targets the backdoor. </li>
+        <li class="my-2"> Select this exploit using the <b>use </b> command, and set the <b> RHOST </b> parameter to the IP address of Metasploitable. </li>
+        <li class="my-2"> The <b> RPORT </b> parameter is already set to port 21 so you don't need to change its value. </li>
+        <li class="my-2"> Run the exploit, using <code> exploit </code> </li>
+      </ol>
+      </p>
+      <p>
+      If you have followed the steps above correctly, you should see output from Metasploit stating that a command shell session has opened.
+      This indicates that Metasploitable has been compromised successfully, and you now have access to the system as root with a shell.
+      To ensure that, you can use the <code> hostname </code> and <code> whoami </code> commands to output the systems name and current user.<br />
+      <br />
+      Having access to a remote shell, especially as root, allows an attacker to severely damage the system by altering and deleting files, steal and modify importand data
+      and information and much more. You can navigate in the Metasploitable VM using the shell and experiment with what you can do. Please note that modifying or deleting files and directories may affect and damage the system
+      and is therefore reccomended to avoid that.
+    </p>
+  </div>
+
+  <div class="row col-md-12 mt-4">
+    <h4> How does this exploit work? </h4>
+  </div>
+    <div class="row col-md-12">
+      <p>
+        The exploit you have used can automatically take advantage of the port and perform the necessary steps to break into Metasploitable. But what happens in the background?
+        If the username sent ends with the following characters ":)" a listening shell opens on port 6200. You can try that with telnet, following the instructions below:
+        <ol>
+          <li class="my-2"> In a new terminal, type <code> telnet [Metasploitable_ip_address] 6200 </code> </li>
+          <li class="my-2"> The connection is refused. We are now going to use the backdoor to establish a connection with port 6200.</li>
+          <li class="my-2"> In the terminal, type <code> telnet [Metasploitable_ip_address] 21 </code> </li>
+          <li class="my-2"> After the terminal output type <code> user </code> followed by a space character and any string ending in ":)" </li>
+          <li class="my-2"> Similarly, type <code> pass </code> followed by a space character and any string. </li>
+          <li class="my-2"> From the output above you can see the escape character is "^]". You can enter this character by pressing <kbd> ctrl</kbd> + <kbd> ] </kbd> </li>
+          <li class="my-2"> Now type "quit" and hit enter to close the connection. </li>
+          <li class="my-2"> Try to connect to port 6200 as before. </li>
+          <li class="my-2"> You have now successfully connected to that port which means that you have correctly used the backdoor! </li>
+          <li class="my-2"> You can confirm that, by entering "id;". The output indicates that you have root priviledges. </li>
+        </ol>
+      </p>
+    </div>
+
+
+</div>
+
+{% endblock content %}

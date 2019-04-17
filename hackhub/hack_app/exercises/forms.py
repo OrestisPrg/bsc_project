@@ -86,6 +86,4 @@ class Ch3ex3(forms.Form):
     q3 = forms.CharField(label='What is the password for "klog"?', max_length=100)
 
 class Ch3ex4(forms.Form):
-    q1 = forms.CharField(label='q1', max_length=100)
-    q2 = forms.CharField(label='q2', max_length=100)
-    q3 = forms.CharField(label='q3', max_length=100)
+    q1 = forms.CharField(label='What string is in the parentheses next to the username of the user you are logged in as?', max_length=100)

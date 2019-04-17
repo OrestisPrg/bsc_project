@@ -2,15 +2,15 @@
 {% block content %}
   <div class="container">
     <hr class="divider" />
-    <div class="row justify-content-center">
+    <div class="row justify-content-center col-md-12">
       <h2> Getting Started </h2>
     </div>
     <hr class="divider" />
-    <div class="row mt-5">
+    <div class="row mt-5 col-md-12">
       <h4> About HackHub </h4>
     </div>
     <hr class="divider" />
-    <div class="row">
+    <div class="row col-md-12">
       <p>
         Hackhub is an online educational platform that aims at introducing people from all backgrounds to ethical hacking.
         <ul>
@@ -19,20 +19,47 @@
           <li>Each chapter is divided into sections focusing on a specific topic and skill. Studying a chapter's section will
           provide you with the knowledge to complete the section's quiz and earn a badge.</li>
         </ul><br />
-        In order to complete each quiz you will need to access and use a Kali Linux VM. The VM provides you with an environment
+        In order to complete each quiz you will need to access and use a virtual machine (VM) running Kali Linux. The VM provides you with an environment
         to experiment, try new things and apply your newly gained skills to answers the quiz's questions.
       </p>
     </div>
 
-    <div class="row mt-4">
+    <div class="row mt-4 col-md-12">
       <h4> Kali Linux VM </h4>
     </div>
     <hr class="divider" />
-    <div class="row">
+    <div class="row col-md-12">
       <p>
         As mentioned above, you will be required to use a virtual machine running Kali Linux OS, a Linux distribution especially
         designed for penetration testing. Kali comes with a large number of preinstalled penetration-testing programs and tools
-        which we will use through a number of chapters.<br />
+        which we will use through a number of chapters.
+      </p>
+    </div>
+
+    <div class="row my-4 col-md-12">
+      <h4> Initial Setup </h4>
+    </div>
+    <div class="row col-md-12">
+      <p>
+        In order to be able to run a virtual machine, you first need to download the "Kali.ova" file and install VirtualBox. You can download VirtualBox from <a id="external" href="https://www.virtualbox.org/wiki/Downloads"> this link. </a>
+        <ol>
+          <li>Once you have installed and launched VirtualBox, click on<b> File > Import Appliance </b> and browse to the location where the<b> Kali.ova </b> file is located.</li>
+          <li> Select Kali.ova and click Next.</li>
+          <li> On the "Appliance Import Settings", click <b>Import</b></li>
+        </ol>
+        You are now ready to use Kali VM which is listed on the menu on the left. You can launch the VM by double clicking on it.
+      </p>
+    </div>
+
+    <div class="row my-4 col-md-12">
+      <h4> Using Kali VM </h4>
+    </div>
+    <div class="row mb-5 col-md-12">
+      <p>
+        The virtual machine image you have imported is preconfigured and set up to allow to complete the quizzes of HackHub. Before launching the VM for the first time, it highly reccomended to take a snapshot of its initial state.
+        Snapshots in VirtualBox allow you to save the current state of a VM, serving as a backup, which can be then used to restore that state reverting any changes. This is extremely useful as it allows to experiment in a sandbox environment where you can always go back to a previous state in case something goes wrong.
+        To take a snapshot, click on the arrow button right next to the Machine Tools button on the upper right corner of VirtualBox's main screen and then click on snapshots. Then, click on the take button to take a snapshot. You can take multiple snapshots which will be structured hierarchically.
+        Remember you always have the option to discard the instance of the Kali VM you are using and create a new one using the image file.<br />
         <br />
         In order to gain access to the machine, you will need to login with the following credentials:
         <ul>
@@ -43,6 +70,5 @@
         experience.
       </p>
     </div>
-
   </div>
 {% endblock content %}

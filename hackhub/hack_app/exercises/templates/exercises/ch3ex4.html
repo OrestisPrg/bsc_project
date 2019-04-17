@@ -58,15 +58,45 @@
     <hr class="divider">
       <div class="row col-md-12">
         <p>
-
-          <ol>
-            <li class="my-2"> Launch the Metasploit console in a new terminal. </li>
-            <li class="my-2"> Enter the following command <code> hydra -l sys -P /usr/share/metasploit-framework/data/wordlists/password.lst ssh://[Metasploitable_ip_address]</code></li>
-            Now, using <b> -P </b> we specify that the wordlist "password.lst" will be used, which is provided by metasploit. Please note ssh is used instead of ftp used in the previous example.
-            <li class="my-2"> From the output, we can see that a valid password has been found and we can confirm that by using these credentials to login to Metasploitable. </li>
-          </ol>
+          Injection attacks refer to the injections of malicious code in an application in order to exploit a vulnerability, altering its functionality.
+          The result of such an attack can lead to exposure of sensitive or confidential data, bypassing authentication, denial of service or even to the compromisation of the entire system.
+          While there exist a lot different injection types, some of the most popular are SQL injection, HTML injection and JavaScript injection. Each type targets a different component of a web application such as the database, its front-end or logic respectively.<br />
+          <br />
+          Even though the majority of today's websites cannot be easily targeted by injection attacks, Mutillidae can be exploited using the simplest forms of injections.
         </p>
       </div>
+
+      <div class="row col-md-12 mt-4">
+        <h4> SQL Injection </h4>
+      </div>
+      <hr class="divider">
+        <div class="row col-md-12">
+          <p>
+            Mutillidae's database has a table storing the users' credentials which is accessed every time a user registers or logs in. This is achieved through SQL queries which have a standardised structure. Let's try modifying that query by injecting SQL code in the login form. For now, set the difficulty level to 0.
+            <ol>
+              <li> Create a new account by registering if you haven't done this already. </li>
+              <li> From the sidebar on the left, select "OWASP Top 10 > A1 - Injection > SQLi - Extract Data > User Info".</li>
+              Using your account's credentials correctly in the form provided, returns your account details using the following query: <code> SELECT * FROM accounts WHERE username='[username]' AND password='[password]'</code>. The fields get replaced with your input and the query is carried out successfully. But what happens if you enter characters or words that are used to construct an SQL query?
+              <li> In the username field, type your username followed by a space and a single quote (') and press "View Account Details".</li>
+              An error message appears, showing the query that was constructed. The single quotes are used to define the username field's value but the quote we have entered has caused an error as it alters the query's syntax.
+              What if you took advantage of this flaw to alter the query in order to return all the contents of the "accounts" table?
+              <li> This can be achieved by insterting the following in the username field: <b> a ' OR 1=1 # </b></li>
+              While character "a" could be any character or string not matching any table record, OR 1=1 makes the overall statement true, while the "#" used to define a comment discards the remaining part of the query.
+              <li> As a result, even though the query's WHERE condition is false, the statement after OR is true, SELECT * return all the contents of the accounts table.</li>
+            </ol>
+          </p>
+        </div>
+
+        <div class="row col-md-12 mt-4">
+          <h4> Exploring other vulnerabilities </h4>
+        </div>
+        <hr class="divider">
+          <div class="row col-md-12">
+            <p>
+              SQL Injection is just one of the many different vulnerabilities in Mutillidae. There are many more to discover, exploit and practice with, categorised in regards to OWASP's top 10 vulnerabilities. You can work on topics you may be familiar with already, or topics you have never encountered before by enabling the detailed hints setting (level 2).
+              By enabling the hints and tutorials, you will be able to learn about how each vulnerability can be exploited and where to start from. Feel free to experiment with Mutillidae and keep in mind you can always reset the database using the link provided in case something breaks or you just want a fresh start!
+            </p>
+          </div>
 
 
 </div>

@@ -1,5 +1,6 @@
+
 body {
-  background: #fafafa;
+  background: #FFFFFF;
   color: #333333;
   margin-top: 9rem;
 }
@@ -17,8 +18,10 @@ ul {
   font-size: 1.5em;
 }
 
-.bg-steel {
-  background-color: #5f788a;
+#external {
+    color: #0000FF;
+    text-decoration: underline;
+    transition: all 0.3s;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -41,42 +44,6 @@ ul {
   margin-bottom: 20px;
 }
 
-.article-title {
-  color: #444444;
-}
-
-a.article-title:hover {
-  color: #428bca;
-  text-decoration: none;
-}
-
-.article-content {
-  white-space: pre-line;
-}
-
-.article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
-}
-
-.article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3
-}
-
-.article-metadata a:hover {
-  color: #333;
-  text-decoration: none;
-}
-
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
-
 .account-img {
   height: 125px;
   width: 125px;
@@ -86,11 +53,6 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
 }
 
 p {
@@ -105,48 +67,6 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
-#external {
-    color: #0000FF;
-    text-decoration: underline;
-    transition: all 0.3s;
-}
-
-#sidebar {
-    /* don't forget to add all the previously mentioned styles here too */
-    background: #7386D5;
-    color: #fff;
-    transition: all 0.3s;
-}
-
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: #6d7fcc;
-}
-
-#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-}
-#sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
-}
-
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
-}
 ul ul a {
     font-size: 1.2em !important;
     padding-left: 30px !important;

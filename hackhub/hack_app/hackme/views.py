@@ -29,3 +29,10 @@ def chapters(request):
         'title': 'Chapters - H|H'
     }
     return render(request,'hackme/chapters.html', context)
+
+@login_required
+def references(request):
+    context = {
+        'title': 'References - H|H'
+    }
+    return render(request,'hackme/references.html', context)

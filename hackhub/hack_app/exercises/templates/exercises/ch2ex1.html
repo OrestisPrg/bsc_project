@@ -75,11 +75,23 @@
         <li> Enable the Network Adapter and set attached to to "Host-only Adapter" from the dropdown menu.</li>
         <li> Set "name" to the network adapter created in step 4 and click OK.</li>
       </ol>
-      After following the above, you should have 2 virtual machines with different IP addresses, connected to a virtual network. You can check this by using the <code> ifconfig </code> command. Each machine's IP address can be found in the "eth0" block labeled as "inet".
+      After following the above, you should have 2 virtual machines with different IP addresses, connected to a virtual network. You can check this by using the <code> ifconfig </code> command. Each machine's IP address can be found in the "eth0" or "eth1" block (depending on how you have configured the network adapters in the previous section), labeled as "inet".
+      Metasploitable's screen tends to turn black after being inactive for a cetrain amount of time. To turn on the display simply press <kbd> Enter </kbd>.
     </p>
     <div class="alert alert-warning">Warning: After powering on your Kali VM, you may need to manually enable the network adapter that connects you to the internet. You can do that by clicking "Connect" on the corresponding network adapter, on the upper taskbar network settings.</div>
   </div>
-
+  <hr class="divider">
+  <div class="row mt-4 col-md-12">
+    <h4> Metasploitable 2 Explotability Guide</h4>
+  </div>
+  <hr class="divider">
+  <div class="row mb-4 col-md-12">
+    <p>
+      In the following chapter, we will start exploiting Metasploitable's vulnerabilities focusing on a different type of vulnerability in each section. Detailed instructions will be provided to help you familiarise with new content introduced.
+      In case you feel stuck or need further guidance, Rapid7 provides an exploitability guide for Metasploitable which you can access using <a id="external" href="https://metasploit.help.rapid7.com/docs/metasploitable-2-exploitability-guide"> this link. </a>
+      However, it is highly reccomended to first attempt to solve the quizzes and learn using Hackhub's resources, as the exploitability guide provide precise instructions and information on a number of vulnerabilities that may prevent you from practising your skills on the vulnerabilities examined.
+    </p>
+  </div>
 
 </div>
 

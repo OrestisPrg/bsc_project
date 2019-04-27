@@ -46,7 +46,8 @@
   </div>
   <div class="row col-md-12">
     <p>
-      In the following section the field <code>[IP] </code> stands for a host's IP Address and <code>[hostname] </code> for a host's address as URL. You can view your machine's IP address using the <code> ifconfig </code> command.
+      In the following section the field <code>[IP] </code> stands for a host's IP Address and <code>[hostname] </code> for a host's address as URL. You can view your machine's IP address using the <code> ifconfig </code> command. The IP address should be listed in the block named "eth0" or "eth1" (depending on how you have configured the network adapters in the previous section), labelled as "inet".
+        When using nmap you might get an error message stating that you do not have the necessary priviledges to perform that action. In order to overcome this, simply append "sudo" in front of the command to run it as root.
     </p>
     <ul>
       <li class="my-2">
@@ -78,7 +79,7 @@
       </li>
       <hr class="divider">
       <li>
-        <b>Enalbe OS and service detection: </b> <code> nmap -A [IP or hostname]</code><br />
+        <b>Enable OS and service detection: </b> <code> nmap -A [IP or hostname]</code><br />
         This is a very good way to obtain useful information which may help in detecting potential exploits for particular services. Including the <code> -T4 </code> option will make the execution faster.
       </li>
       <hr class="divider">
